@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmCatalogoFecuencias.aspx.vb" Inherits="ShiatsuWeb.FrmCatalogoFecuencia" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmCatalogoFrecuenciaCita.aspx.vb" Inherits="ShiatsuWeb.FrmCatalogoFrecuenciaCita" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
    
 </asp:Content>

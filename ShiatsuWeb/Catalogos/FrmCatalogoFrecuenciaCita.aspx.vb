@@ -1,9 +1,9 @@
-﻿Public Class FrmCatalogoFecuencia
+﻿Public Class FrmCatalogoFrecuenciaCita
     Inherits System.Web.UI.Page
     Dim usuario As Usuario
     Dim frecuenciaAsistenciaDao As FrecuenciaAsistenciaDao = New FrecuenciaAsistenciaDao()
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load 
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'VERIFICA LA SEGURIDAD
         usuario = Session("usuario")
         If (usuario Is Nothing) Then
@@ -11,7 +11,7 @@
         End If
         Me.lblMensaje.Text = ""
     End Sub
-     
+
 
     ''' <summary>
     ''' este evento se ejecuta al agregar
@@ -20,7 +20,7 @@
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Try 
+        Try
             If (Me.validar()) Then
                 Dim frecuenciaAsistencia As FrecuenciaAsistencia = New FrecuenciaAsistencia()
                 frecuenciaAsistencia.metId = Me.txtId.Text

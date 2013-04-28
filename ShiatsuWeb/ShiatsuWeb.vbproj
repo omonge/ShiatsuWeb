@@ -209,7 +209,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Catalogos\FrmCatalogoFecuencias.aspx" />
+    <Content Include="Catalogos\FrmCatalogoFrecuenciaCita.aspx" />
     <Content Include="Catalogos\FrmCatalogoInventario.aspx" />
     <Content Include="FrmFacturar.aspx" />
     <Content Include="Login\FrmLogin.aspx" />
@@ -335,11 +335,11 @@
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Catalogos\FrmCatalogoFecuencias.aspx.designer.vb">
-      <DependentUpon>FrmCatalogoFecuencias.aspx</DependentUpon>
+    <Compile Include="Catalogos\FrmCatalogoFrecuenciaCita.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoFrecuenciaCita.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Catalogos\FrmCatalogoFecuencias.aspx.vb">
-      <DependentUpon>FrmCatalogoFecuencias.aspx</DependentUpon>
+    <Compile Include="Catalogos\FrmCatalogoFrecuenciaCita.aspx.vb">
+      <DependentUpon>FrmCatalogoFrecuenciaCita.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmCatalogoInventario.aspx.designer.vb">

@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FrmCatalogoFecuencia
+Partial Public Class FrmCatalogoFrecuenciaCita
 
     '''<summary>
     '''Control txtId.

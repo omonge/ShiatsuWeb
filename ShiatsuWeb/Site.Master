@@ -57,7 +57,7 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio" Value="Inicio"></asp:MenuItem>
                         <asp:MenuItem Text="Catálogos" Value="Catálogos">
-                            <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoFecuencias.aspx" Text="Frecuencia" Value="Frecuencia"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoFrecuenciaCita.aspx" Text="Frecuencia" Value="Frecuencia"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoInventario.aspx" Text="Inventario" Value="Inventario"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Cita" Value="Cita">
