@@ -1,0 +1,623 @@
+CREATE DATABASE  IF NOT EXISTS `test` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `test`;
+-- MySQL dump 10.13  Distrib 5.6.11, for Win64 (x86_64)
+--
+-- Host: localhost    Database: test
+-- ------------------------------------------------------
+-- Server version	5.6.10-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cat_canton`
+--
+
+DROP TABLE IF EXISTS `cat_canton`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_canton` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `provincia` int(11) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `provincia` (`provincia`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_canton`
+--
+
+LOCK TABLES `cat_canton` WRITE;
+/*!40000 ALTER TABLE `cat_canton` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_canton` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_cliente`
+--
+
+DROP TABLE IF EXISTS `cat_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_cliente` (
+  `CEDCLIENTE` varchar(25) NOT NULL,
+  `DIRECCION` varchar(100) DEFAULT NULL,
+  `ESTADO` varchar(1) DEFAULT NULL,
+  `EMAIL1` varchar(50) DEFAULT NULL,
+  `EMAIL2` varchar(50) DEFAULT NULL,
+  `FACTURA_A_NOMBRE` varchar(50) DEFAULT NULL,
+  `FRECUENCIA_CITA` decimal(1,0) DEFAULT NULL,
+  `LUGAR_PROFESION` varchar(50) DEFAULT NULL,
+  `NACIMIENTO` date DEFAULT NULL,
+  `NACIONALIDAD` decimal(10,0) DEFAULT NULL,
+  `NOMBRE` varchar(50) DEFAULT NULL,
+  `PROFESION` decimal(10,0) DEFAULT NULL,
+  `SEXO` varchar(1) DEFAULT NULL,
+  `TELEFONO_CASA` decimal(10,0) DEFAULT NULL,
+  `TELEFONO_CELULAR` decimal(10,0) DEFAULT NULL,
+  `TIPO_ALOPECIA` decimal(3,0) DEFAULT NULL,
+  `PROVINCIA` int(11) DEFAULT NULL,
+  `CANTON` int(11) DEFAULT NULL,
+  `DISTRITO` int(11) DEFAULT NULL,
+  `DIAGNOSTICO` varchar(22) NOT NULL DEFAULT '1',
+  `USUARIO` varchar(22) DEFAULT NULL,
+  `FMODIFICA` date DEFAULT NULL,
+  PRIMARY KEY (`CEDCLIENTE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_cliente`
+--
+
+LOCK TABLES `cat_cliente` WRITE;
+/*!40000 ALTER TABLE `cat_cliente` DISABLE KEYS */;
+INSERT INTO `cat_cliente` VALUES ('104350875','ALAJUELA','A','ERTER@YAHOO.COM',NULL,'MONGE UMAÑA JAVIER',1,'VISTA VERDE','1968-04-14',1,'JAVIER MONGE UMAÑA',1,'M',25493837,84564544,1,NULL,NULL,NULL,'1','123','2013-01-08'),('503450875','ALAJUELA','A','CASF@HOTMAIL.COM',NULL,'SALAS MONGE CARLOS',1,'IMPERIO','1968-04-14',1,'CARLOS SALAS MONGE',1,'M',25493837,63554656,1,NULL,NULL,NULL,'1','123','2013-01-08'),('601230863','ALAJUELA','A','SARAY@GMAIL.COM',NULL,'SARAY ARIAS ARIAS',3,'HOME','1968-04-14',1,'SARAY ARIAS MENA',1,'F',25493837,88907685,1,0,0,0,'603540974','123','2013-01-08'),('603540974','HEREDIA','A','JUPMASALAMANCA@GMAIL.COM',NULL,'ALTERNATIVA TEÉCNOLOGICA',1,'ICE','1986-05-06',1,'MAIKOL SALAMANCA ARIAS',1,'M',22606865,88729065,1,NULL,NULL,NULL,'603540974','123','2013-01-04');
+/*!40000 ALTER TABLE `cat_cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_cubiculo`
+--
+
+DROP TABLE IF EXISTS `cat_cubiculo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_cubiculo` (
+  `cubiculo` int(11) NOT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`cubiculo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_cubiculo`
+--
+
+LOCK TABLES `cat_cubiculo` WRITE;
+/*!40000 ALTER TABLE `cat_cubiculo` DISABLE KEYS */;
+INSERT INTO `cat_cubiculo` VALUES (0,'shiatsu','2013-04-24 14:06:41'),(1,'shiatsu','2013-04-24 14:06:41'),(2,'shiatsu','2013-04-24 14:06:41'),(3,'shiatsu','2013-04-24 14:06:41'),(4,'shiatsu','2013-04-24 14:06:41'),(5,'shiatsu','2013-04-24 14:06:41'),(6,'shiatsu','2013-04-24 14:06:41'),(7,'shiatsu','2013-04-24 14:06:41'),(8,'shiatsu','2013-04-24 14:06:41'),(9,'shiatsu','2013-04-24 14:06:41'),(10,'shiatsu','2013-04-24 14:06:41');
+/*!40000 ALTER TABLE `cat_cubiculo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_diagnostico`
+--
+
+DROP TABLE IF EXISTS `cat_diagnostico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_diagnostico` (
+  `cedcliente` varchar(22) NOT NULL DEFAULT '',
+  `nombre` varchar(50) DEFAULT NULL,
+  `tipo_alopecia` decimal(3,0) DEFAULT NULL,
+  `porcentaje_perdida` decimal(4,2) DEFAULT NULL,
+  `usuario` varchar(50) DEFAULT NULL,
+  `dermatitis_oleosa` varchar(2) DEFAULT NULL,
+  `dermatitis_seca` varchar(2) DEFAULT NULL,
+  `dermatitis_seborreica` varchar(2) DEFAULT NULL,
+  `caspa` varchar(2) DEFAULT NULL,
+  `hongo` varchar(50) DEFAULT NULL,
+  `deshidratacion` varchar(2) DEFAULT NULL,
+  `psoriasis` varchar(2) DEFAULT NULL,
+  `telanocitos` varchar(2) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`cedcliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_diagnostico`
+--
+
+LOCK TABLES `cat_diagnostico` WRITE;
+/*!40000 ALTER TABLE `cat_diagnostico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_diagnostico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_distrito`
+--
+
+DROP TABLE IF EXISTS `cat_distrito`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_distrito` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `provincia` int(11) DEFAULT NULL,
+  `canton` int(11) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `provincia` (`provincia`),
+  KEY `canton` (`canton`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_distrito`
+--
+
+LOCK TABLES `cat_distrito` WRITE;
+/*!40000 ALTER TABLE `cat_distrito` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_distrito` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_enfermedad`
+--
+
+DROP TABLE IF EXISTS `cat_enfermedad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_enfermedad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_enfermedad`
+--
+
+LOCK TABLES `cat_enfermedad` WRITE;
+/*!40000 ALTER TABLE `cat_enfermedad` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_enfermedad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_frecuencia_asistencia`
+--
+
+DROP TABLE IF EXISTS `cat_frecuencia_asistencia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_frecuencia_asistencia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_frecuencia_asistencia`
+--
+
+LOCK TABLES `cat_frecuencia_asistencia` WRITE;
+/*!40000 ALTER TABLE `cat_frecuencia_asistencia` DISABLE KEYS */;
+INSERT INTO `cat_frecuencia_asistencia` VALUES (8,'Semanal','Activo','2013-04-26 13:59:54','msalamanca'),(15,'Quincenal','Activo','2013-04-26 14:31:52','msalamanca'),(30,'Mensual','Activo','2013-04-26 14:00:27','msalamanca');
+/*!40000 ALTER TABLE `cat_frecuencia_asistencia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_hora`
+--
+
+DROP TABLE IF EXISTS `cat_hora`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_hora` (
+  `hora` varchar(5) NOT NULL,
+  `usuario` varchar(25) DEFAULT NULL,
+  `fmodifica` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`hora`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_hora`
+--
+
+LOCK TABLES `cat_hora` WRITE;
+/*!40000 ALTER TABLE `cat_hora` DISABLE KEYS */;
+INSERT INTO `cat_hora` VALUES ('07:00','shiatsu','2013-04-24 14:00:20'),('08:00','shiatsu','2013-04-24 14:00:20'),('09:00','shiatsu','2013-04-24 14:00:20'),('10:00','shiatsu','2013-04-24 14:00:20'),('11:00','shiatsu','2013-04-24 14:00:20'),('12:00','shiatsu','2013-04-24 14:00:20'),('13:00','shiatsu','2013-04-24 14:00:20'),('14:00','shiatsu','2013-04-24 14:00:20'),('15:00','shiatsu','2013-04-24 14:00:20'),('16:00','shiatsu','2013-04-24 14:00:20'),('17:00','shiatsu','2013-04-24 14:00:20');
+/*!40000 ALTER TABLE `cat_hora` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_inventario`
+--
+
+DROP TABLE IF EXISTS `cat_inventario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_inventario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT '0',
+  `precio1` double DEFAULT '0',
+  `precio2` double DEFAULT '0',
+  `precio3` double DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_inventario`
+--
+
+LOCK TABLES `cat_inventario` WRITE;
+/*!40000 ALTER TABLE `cat_inventario` DISABLE KEYS */;
+INSERT INTO `cat_inventario` VALUES (1,'Pomada','Activo','2013-04-26 14:42:22','msalamanca',18,3000,2000,1000),(2,'Pastillas','Activo','2013-04-26 14:42:26','msalamanca',2,6000,4000,3500),(3,'Ampolla','Activo','2013-04-26 14:42:31','msalamanca',5,15000,14000,13500),(4,'Pomada','Activo','2013-04-26 14:42:34','msalamanca',5,1000,960,940);
+/*!40000 ALTER TABLE `cat_inventario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_medicamento`
+--
+
+DROP TABLE IF EXISTS `cat_medicamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_medicamento` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_medicamento`
+--
+
+LOCK TABLES `cat_medicamento` WRITE;
+/*!40000 ALTER TABLE `cat_medicamento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_medicamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_pais`
+--
+
+DROP TABLE IF EXISTS `cat_pais`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_pais` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_pais`
+--
+
+LOCK TABLES `cat_pais` WRITE;
+/*!40000 ALTER TABLE `cat_pais` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_pais` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_profesion`
+--
+
+DROP TABLE IF EXISTS `cat_profesion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_profesion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_profesion`
+--
+
+LOCK TABLES `cat_profesion` WRITE;
+/*!40000 ALTER TABLE `cat_profesion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_profesion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_provincia`
+--
+
+DROP TABLE IF EXISTS `cat_provincia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_provincia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_provincia`
+--
+
+LOCK TABLES `cat_provincia` WRITE;
+/*!40000 ALTER TABLE `cat_provincia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_provincia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_sucursal`
+--
+
+DROP TABLE IF EXISTS `cat_sucursal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_sucursal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_sucursal`
+--
+
+LOCK TABLES `cat_sucursal` WRITE;
+/*!40000 ALTER TABLE `cat_sucursal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_sucursal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_suministro`
+--
+
+DROP TABLE IF EXISTS `cat_suministro`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_suministro` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_suministro`
+--
+
+LOCK TABLES `cat_suministro` WRITE;
+/*!40000 ALTER TABLE `cat_suministro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_suministro` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_tipo_alopecia`
+--
+
+DROP TABLE IF EXISTS `cat_tipo_alopecia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_tipo_alopecia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_tipo_alopecia`
+--
+
+LOCK TABLES `cat_tipo_alopecia` WRITE;
+/*!40000 ALTER TABLE `cat_tipo_alopecia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_tipo_alopecia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_tipo_cliente`
+--
+
+DROP TABLE IF EXISTS `cat_tipo_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_tipo_cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_tipo_cliente`
+--
+
+LOCK TABLES `cat_tipo_cliente` WRITE;
+/*!40000 ALTER TABLE `cat_tipo_cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cat_tipo_cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_usuario`
+--
+
+DROP TABLE IF EXISTS `cat_usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_usuario` (
+  `usuario` varchar(25) NOT NULL,
+  `password` varchar(25) DEFAULT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `perfil` varchar(45) DEFAULT NULL,
+  `estado` varchar(1) DEFAULT NULL,
+  `cubiculo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_usuario`
+--
+
+LOCK TABLES `cat_usuario` WRITE;
+/*!40000 ALTER TABLE `cat_usuario` DISABLE KEYS */;
+INSERT INTO `cat_usuario` VALUES ('msalamanca','msalamanca','Maikol Salamanca Arias','Administrador','A',1),('shiatsu','shiatsu','shiatsu','Ssitema','A',1);
+/*!40000 ALTER TABLE `cat_usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cita`
+--
+
+DROP TABLE IF EXISTS `cita`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cita` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` varchar(8) DEFAULT NULL,
+  `hora` varchar(5) DEFAULT NULL,
+  `cliente` varchar(25) DEFAULT NULL,
+  `cubiculo` int(11) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
+  `observaciones` varchar(100) DEFAULT NULL,
+  `usuario` varchar(22) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cita`
+--
+
+LOCK TABLES `cita` WRITE;
+/*!40000 ALTER TABLE `cita` DISABLE KEYS */;
+INSERT INTO `cita` VALUES (1,'20130428','10:00','603540974',1,'Pendiente',NULL,'test','msalamanca','2013-04-28 12:54:58'),(30,'20130428','07:00','104350875',1,'Factura',NULL,'rtrrrr','msalamanca','2013-04-28 12:48:58'),(31,'20130428','14:00','104350875',1,'Pendiente',NULL,'retrt','msalamanca','2013-04-28 12:54:30');
+/*!40000 ALTER TABLE `cita` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `factura_detalle`
+--
+
+DROP TABLE IF EXISTS `factura_detalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `factura_detalle` (
+  `factura` int(11) NOT NULL,
+  `producto` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `usuario` varchar(25) DEFAULT NULL,
+  `fmodifica` datetime DEFAULT NULL,
+  PRIMARY KEY (`factura`,`producto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `factura_detalle`
+--
+
+LOCK TABLES `factura_detalle` WRITE;
+/*!40000 ALTER TABLE `factura_detalle` DISABLE KEYS */;
+INSERT INTO `factura_detalle` VALUES (9,1,2,'msalamanca','2013-04-25 17:30:40'),(9,2,5,'msalamanca','2013-04-25 22:40:18'),(9,3,3,'msalamanca','2013-04-25 23:09:03'),(9,4,4,'msalamanca','2013-04-25 22:42:13'),(26,1,2,'msalamanca','2013-04-26 20:23:05'),(26,4,1,'msalamanca','2013-04-26 23:16:19'),(27,1,1,'msalamanca','2013-04-26 02:38:16'),(27,2,2,'msalamanca','2013-04-26 02:38:28'),(30,1,3,'msalamanca','2013-04-28 12:32:51'),(31,1,2,'msalamanca','2013-04-28 15:30:27'),(31,2,1,'msalamanca','2013-04-28 15:30:39');
+/*!40000 ALTER TABLE `factura_detalle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `factura_encabezado`
+--
+
+DROP TABLE IF EXISTS `factura_encabezado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `factura_encabezado` (
+  `factura` int(11) NOT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `cliente` varchar(25) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT NULL,
+  `usuario` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`factura`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `factura_encabezado`
+--
+
+LOCK TABLES `factura_encabezado` WRITE;
+/*!40000 ALTER TABLE `factura_encabezado` DISABLE KEYS */;
+INSERT INTO `factura_encabezado` VALUES (9,'2013-04-25 17:14:13','503450875','Abierta','msalamanca'),(21,'2013-04-25 22:27:19','603540974','Abierta','msalamanca'),(26,'2013-04-26 15:33:49','104350875','Abierta','msalamanca'),(27,'2013-04-26 02:37:58','104350875','Abierta','msalamanca'),(30,'2013-04-28 11:11:57','104350875','Abierta','msalamanca'),(31,'2013-04-28 13:00:06','104350875','Abierta','msalamanca');
+/*!40000 ALTER TABLE `factura_encabezado` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-04-28 16:07:34
