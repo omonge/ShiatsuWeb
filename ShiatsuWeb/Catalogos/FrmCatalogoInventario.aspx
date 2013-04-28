@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     
-      <h3>Mantenimiento Frecuencia Citas</h3>
+      <h3>Mantenimiento Inventario</h3>
    <table>
         <tr>
         <td >Código</td>

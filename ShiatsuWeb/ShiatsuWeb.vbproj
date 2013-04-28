@@ -153,6 +153,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Catalogos\FrmCatalogoTipoAlopecia.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -309,6 +310,13 @@
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.vb">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\FrmCatalogoTipoAlopecia.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoTipoAlopecia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoTipoAlopecia.aspx.vb">
+      <DependentUpon>FrmCatalogoTipoAlopecia.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Contact.aspx.designer.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
@@ -317,6 +325,7 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Dao\CitaDao.vb" />
+    <Compile Include="Dao\TipoAlopeciaDao.vb" />
     <Compile Include="FrmFacturar.aspx.designer.vb">
       <DependentUpon>FrmFacturar.aspx</DependentUpon>
     </Compile>
@@ -324,7 +333,7 @@
       <DependentUpon>FrmFacturar.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="LogicaNegocio\FrecuenciaAsistenciaDao.vb" />
+    <Compile Include="Dao\FrecuenciaAsistenciaDao.vb" />
     <Compile Include="Dao\FacturaDao.vb" />
     <Compile Include="Dao\InventarioDao.vb" />
     <Compile Include="Dao\UsuarioDao.vb" />
@@ -349,6 +358,7 @@
       <DependentUpon>FrmCatalogoInventario.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="LogicaNegocio\TipoAlopecia.vb" />
     <Compile Include="LogicaNegocio\FacturaDetalle.vb" />
     <Compile Include="LogicaNegocio\FacturaEncabezado.vb" />
     <Compile Include="LogicaNegocio\FrecuenciaAsistencia.vb" />

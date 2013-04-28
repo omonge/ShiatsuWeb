@@ -73,3 +73,41 @@ C:\Users\ShiatsuWeb\Documents\Visual Studio 2012\Projects\ShiatsuWeb\ShiatsuWeb\
 C:\Users\ShiatsuWeb\Documents\Visual Studio 2012\Projects\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.dll
 C:\Users\ShiatsuWeb\Documents\Visual Studio 2012\Projects\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.xml
 C:\Users\ShiatsuWeb\Documents\Visual Studio 2012\Projects\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.pdb
+C:\ShiatsuWeb\ShiatsuWeb\bin\ShiatsuWeb.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\ShiatsuWeb.pdb
+C:\ShiatsuWeb\ShiatsuWeb\bin\ShiatsuWeb.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\Antlr3.Runtime.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\AspNet.ScriptManager.jQuery.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.AspNet.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.Core.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OAuth.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OpenId.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\EntityFramework.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\Microsoft.ScriptManager.WebForms.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\System.Web.Optimization.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\System.Web.Providers.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\WebGrease.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\EntityFramework.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.Core.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OAuth.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OpenId.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\DotNetOpenAuth.AspNet.xml
+C:\ShiatsuWeb\ShiatsuWeb\bin\es\EntityFramework.resources.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\es\System.Web.Optimization.resources.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\es\System.Web.Providers.resources.dll
+C:\ShiatsuWeb\ShiatsuWeb\bin\es\Microsoft.AspNet.Membership.OpenAuth.resources.dll
+C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.vbprojResolveAssemblyReference.cache
+C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.Resources.resources
+C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.vbproj.GenerateResource.Cache
+C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.dll
+C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.xml
+C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.pdb

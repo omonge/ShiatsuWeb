@@ -445,7 +445,8 @@ fieldset {
         font-size: 1em;
         padding: 4px;
         margin-right: 4px;
-    }
+    margin-bottom: 0px;
+}
 
 /* info and errors */
 .message-info {
