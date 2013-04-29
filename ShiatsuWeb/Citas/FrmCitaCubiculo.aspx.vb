@@ -34,7 +34,7 @@ Public Class FrmCitaCubiculo
             Me.txtObservaciones.Text = Me.gvDatosP.SelectedRow.Cells(7).Text
 
             Dim facturaEncabezado As FacturaEncabezado = New FacturaEncabezado()
-            facturaEncabezado.metCliente = cliente
+            facturaEncabezado.metCliente.metCedCliente = cliente
             facturaEncabezado.metEstado = facturaEncabezado.ESTADO_ABIERTA
             facturaEncabezado.metFactura = CInt(Me.lblId.Text)
             facturaEncabezado.metFecha = DateTime.Now

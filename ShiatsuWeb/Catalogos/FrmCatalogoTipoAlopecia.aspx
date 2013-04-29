@@ -50,7 +50,7 @@
             <asp:BoundField DataField="estado" HeaderText="Estado" SortExpression="estado" />
             <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" />
              <asp:BoundField DataField="usuario" HeaderText="Usuario" SortExpression="usuario" />
-             <asp:BoundField DataField="fmodifica" HeaderText="Fecha" SortExpression="fmodifica" />
+             <asp:BoundField DataField="fmodifica" HeaderText="Fecha Modificación" SortExpression="fmodifica" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

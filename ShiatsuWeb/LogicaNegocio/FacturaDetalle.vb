@@ -5,6 +5,7 @@
     Dim producto As Integer
     Dim cantidad As Integer
     Dim factura As Integer
+    Dim precio As Double
 
     Dim cantidadAnterior As Integer
      
@@ -14,6 +15,7 @@
         Me.producto = vbNull
         Me.cantidad = vbNull
         Me.factura = vbNull
+        Me.precio = vbNull
     End Sub
 
     Public Property metFactura() As Integer
@@ -22,6 +24,15 @@
         End Get
         Set(ByVal value As Integer)
             Me.factura = value
+        End Set
+    End Property
+
+    Public Property metPrecio() As Integer
+        Get
+            Return Me.precio
+        End Get
+        Set(ByVal value As Integer)
+            Me.precio = value
         End Set
     End Property
 

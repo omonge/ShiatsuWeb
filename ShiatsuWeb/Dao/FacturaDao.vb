@@ -43,8 +43,8 @@ Public Class FacturaDao
         Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
         coneccion = New MySqlConnection(SuperSecreto)
         'sql
-        Dim sql1 As String = "INSERT INTO factura_detalle(factura,fmodifica,usuario,producto,cantidad)" +
-                            "VALUES (@factura,@fmodifica,@usuario,@producto,@cantidad)"
+        Dim sql1 As String = "INSERT INTO factura_detalle(factura,fmodifica,usuario,producto,cantidad,precio)" +
+                            "VALUES (@factura,@fmodifica,@usuario,@producto,@cantidad,@precio)"
 
         Dim sql2 As String = "UPDATE cat_inventario SET cantidad = cantidad - @cantidad WHERE id = @id"
         'adapter
@@ -57,6 +57,7 @@ Public Class FacturaDao
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@usuario", dato.metUsuario))
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@producto", dato.metProducto))
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@cantidad", dato.metCantidad))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@precio", dato.metPrecio))
 
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@cantidad", dato.metCantidad))
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@id", dato.metProducto))
@@ -155,6 +156,46 @@ Public Class FacturaDao
             Return False
         Else
             Return True
+        End If
+
+    End Function
+
+
+    Public Function consultaEncabezadoFactura(ByRef dato As Integer) As FacturaEncabezado
+
+        'variables
+        Dim coneccion As MySqlConnection
+        Dim dataSet As DataSet
+        Dim dataAdapter As MySqlDataAdapter
+        ''abriendo la coneccion o enlace 
+        Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
+        coneccion = New MySqlConnection(SuperSecreto)
+        'sql
+        Dim sql As String = "select f.cliente,f.estado,f.fecha,f.factura,f.usuario,c.telefono_celular, c.tipo_cliente, c.nombre_factura " +
+                            "from factura_encabezado f, cat_cliente c, cat_tipo_cliente t " +
+                            "where f.factura = @factura AND c.cedcliente = f.cliente AND c.tipo_cliente = t.id "
+        dataAdapter = New MySqlDataAdapter(sql, coneccion)
+        'parametroid
+        dataAdapter.SelectCommand.Parameters.Add(New MySqlParameter("@factura", dato)) 
+        ''Creando el dataset y cargandolo
+        dataSet = New DataSet()
+        dataAdapter.Fill(dataSet, "factura_encabezado")
+        'verifica si existe fila
+        Dim filas As DataRowCollection = dataSet.Tables("factura_encabezado").Rows()
+        If (filas.Count <> 0) Then
+            Dim fila As DataRow = dataSet.Tables("factura_encabezado").Rows(0)
+            Dim facturaEncabezado As FacturaEncabezado = New FacturaEncabezado()
+            facturaEncabezado.metCliente.metCedCliente = fila("cliente")
+            facturaEncabezado.metEstado = fila("estado")
+            facturaEncabezado.metFecha = fila("fecha")
+            facturaEncabezado.metFactura = fila("factura")
+            facturaEncabezado.metUsuario = fila("usuario")
+            facturaEncabezado.metCliente.metTelefonoCelular = fila("telefono_celular")
+            facturaEncabezado.metCliente.metTipoCliente = fila("tipo_cliente")
+            facturaEncabezado.metCliente.metFacturaNombre = fila("nombre_factura")
+            Return facturaEncabezado
+        Else
+            Return Nothing
         End If
 
     End Function

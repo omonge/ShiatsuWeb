@@ -65,7 +65,7 @@
                             <asp:MenuItem NavigateUrl="~/Citas/FrmCitas.aspx" Text="Mantenimiento" Value="Mantenimiento"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Citas/FrmCitaCubiculo.aspx" Text="Cubiculo" Value="Cubiculo"></asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Facturación" Value="Facturación"></asp:MenuItem>
+                        <asp:MenuItem Text="Facturación" Value="Facturación" NavigateUrl="~/Factura/FrmFacturar.aspx"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="Acerca de" Value="Acerca de"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contacto" Value="Contacto"></asp:MenuItem>
                     </Items>

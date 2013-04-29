@@ -22,7 +22,7 @@
         Me.cliente = vbNull
         Me.id = vbNull
         Me.cubiculo = vbNull
-        Me.usuario = vbNull 
+        Me.usuario = vbNull
     End Sub
 
     Public Property metId() As Integer
@@ -88,7 +88,7 @@
             Me.cubiculo = value
         End Set
     End Property
-     
+
     Public Property metUsuario() As String
         Get
             Return Me.usuario

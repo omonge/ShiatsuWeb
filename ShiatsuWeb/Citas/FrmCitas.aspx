@@ -93,9 +93,10 @@
 
                 <tr>
                     <td>Cliente</td>
-                    <td> <asp:DropDownList ID="ddlClientes" runat="server" DataSourceID="clienteDB" DataTextField="nombre" DataValueField="cedula" Width="160px">
+                    <td> <asp:DropDownList ID="ddlClientes" runat="server" DataSourceID="clienteDB" DataTextField="nombre" DataValueField="cedcliente" Width="160px">
                          </asp:DropDownList>
-                         <asp:SqlDataSource ID="clienteDB" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT cedula, CONCAT(apellido1,' ', apellido2, ' ', nombre) nombre  FROM cliente ORDER BY apellido1 ASC, apellido2 ASC, nombre ASC"></asp:SqlDataSource>
+                         <asp:SqlDataSource ID="clienteDB" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
+                             SelectCommand="SELECT cedcliente, nombre  FROM cat_cliente ORDER BY nombre ASC"></asp:SqlDataSource>
                     </td>
                 </tr>
                    <tr>
@@ -148,7 +149,7 @@
         ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
         ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
         DeleteCommand="DELETE FROM cita WHERE id = ?"
-        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT CONCAT(c.apellido1,' ', c.apellido2, ' ', c.nombre)   FROM cliente c WHERE c.cedula = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Pendiente') ORDER BY hora ASC">
+        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT c.nombre  FROM cat_cliente c WHERE c.cedcliente = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Pendiente') ORDER BY hora ASC">
          <DeleteParameters>
              <asp:Parameter Name="id" Type="Int32" />
         </DeleteParameters> 

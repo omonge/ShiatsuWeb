@@ -105,7 +105,6 @@ C:\ShiatsuWeb\ShiatsuWeb\bin\es\EntityFramework.resources.dll
 C:\ShiatsuWeb\ShiatsuWeb\bin\es\System.Web.Optimization.resources.dll
 C:\ShiatsuWeb\ShiatsuWeb\bin\es\System.Web.Providers.resources.dll
 C:\ShiatsuWeb\ShiatsuWeb\bin\es\Microsoft.AspNet.Membership.OpenAuth.resources.dll
-C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.vbprojResolveAssemblyReference.cache
 C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.Resources.resources
 C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.vbproj.GenerateResource.Cache
 C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.dll

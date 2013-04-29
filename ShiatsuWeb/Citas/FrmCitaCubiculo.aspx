@@ -39,7 +39,7 @@
         ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
         ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
         DeleteCommand="DELETE FROM cita WHERE id = ?"
-        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT CONCAT(c.apellido1,' ', c.apellido2, ' ', c.nombre)   FROM cliente c WHERE c.cedula = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Pendiente') AND (cubiculo=?) ORDER BY hora ASC">
+        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT c.nombre   FROM cat_cliente c WHERE c.cedcliente = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Pendiente') AND (cubiculo=?) ORDER BY hora ASC">
          <DeleteParameters>
              <asp:Parameter Name="id" Type="Int32" />
         </DeleteParameters> 
@@ -190,7 +190,7 @@
         ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
         ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
         DeleteCommand="DELETE FROM cita WHERE id = ?"
-        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT CONCAT(c.apellido1,' ', c.apellido2, ' ', c.nombre)   FROM cliente c WHERE c.cedula = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Factura') AND (cubiculo=?) ORDER BY hora ASC">
+        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT c.nombre   FROM cat_cliente c WHERE c.cedcliente = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Factura') AND (cubiculo=?) ORDER BY hora ASC">
          <DeleteParameters>
              <asp:Parameter Name="id" Type="Int32" />
         </DeleteParameters> 

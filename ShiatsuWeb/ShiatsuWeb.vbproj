@@ -212,7 +212,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Catalogos\FrmCatalogoFrecuenciaCita.aspx" />
     <Content Include="Catalogos\FrmCatalogoInventario.aspx" />
-    <Content Include="FrmFacturar.aspx" />
+    <Content Include="Factura\FrmFacturar.aspx" />
+    <Content Include="Images\update.png" />
     <Content Include="Login\FrmLogin.aspx" />
     <Content Include="Citas\FrmCitaCubiculo.aspx" />
     <Content Include="FrmClientes.aspx" />
@@ -326,10 +327,10 @@
     </Compile>
     <Compile Include="Dao\CitaDao.vb" />
     <Compile Include="Dao\TipoAlopeciaDao.vb" />
-    <Compile Include="FrmFacturar.aspx.designer.vb">
+    <Compile Include="Factura\FrmFacturar.aspx.designer.vb">
       <DependentUpon>FrmFacturar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmFacturar.aspx.vb">
+    <Compile Include="Factura\FrmFacturar.aspx.vb">
       <DependentUpon>FrmFacturar.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -358,6 +359,7 @@
       <DependentUpon>FrmCatalogoInventario.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="LogicaNegocio\Cliente.vb" />
     <Compile Include="LogicaNegocio\TipoAlopecia.vb" />
     <Compile Include="LogicaNegocio\FacturaDetalle.vb" />
     <Compile Include="LogicaNegocio\FacturaEncabezado.vb" />
