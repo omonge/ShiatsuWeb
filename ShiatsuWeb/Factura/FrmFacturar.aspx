@@ -247,7 +247,7 @@
              Sub Total:</td>
         <td > 
         
-             <asp:Label ID="lblSubTotal" runat="server"></asp:Label>
+             <asp:TextBox ID="txtSubTotal" runat="server" Font-Bold="True" Width="100px" ReadOnly="True"></asp:TextBox>
         
              </td>
         <td > 
@@ -260,37 +260,28 @@
              &nbsp;</td>
         <td > 
         
-             I.V.A:</td>
+             I.V.A:<asp:CheckBox ID="chkIva" runat="server" Checked="True" />
+            </td>
         <td > 
         
-             <asp:DropDownList ID="ddlImpuesto" runat="server" DataSourceID="impuestoDS" DataTextField="descripcion" DataValueField="id" Width="160px" Height="16px">
-                                    </asp:DropDownList> 
-                                        <asp:ImageButton ID="btnActualizarImpuesto" runat="server" Height="16px" ImageUrl="~/Images/update.png" Width="18px" />
-                                        <asp:SqlDataSource ID="impuestoDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>"
-                                             ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
-                                            SelectCommand="SELECT id, CONCAT(id,' - ',descripcion) descripcion FROM cat_impuesto"></asp:SqlDataSource>
+             <asp:TextBox ID="txtImpuesto" runat="server" Font-Bold="True" Width="100px" ReadOnly="True"></asp:TextBox>
         
              </td>
         <td > 
-        
-             &nbsp;</td>
+                                        <asp:ImageButton ID="btnActualizarPrecio0" runat="server" Height="16px" ImageUrl="~/Images/update.png" Width="18px" />
+        </td>
     </tr> 
         <tr>
-        <td colspan="2"  > 
-        
-             &nbsp;</td>
+        <td colspan="2"  > </td>
         <td > 
         
              Total:</td>
         <td > 
         
-             <asp:Label ID="lblTotal" runat="server"></asp:Label>
+             <asp:TextBox ID="txtTotal" runat="server" Font-Bold="True" TextMode="Number" Width="100px" ReadOnly="True"></asp:TextBox>
             </td>
-        <td > 
-        
-             &nbsp;</td>
+        <td > &nbsp;</td>
     </tr> 
     </table>
     <hr>
-
-    </asp:Content>
+</asp:Content>

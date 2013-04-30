@@ -221,47 +221,47 @@ Partial Public Class FrmFacturar
     Protected WithEvents lblMensajeDetalle As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control lblSubTotal.
+    '''Control txtSubTotal.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblSubTotal As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtSubTotal As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control ddlImpuesto.
+    '''Control chkIva.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents ddlImpuesto As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents chkIva As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''Control btnActualizarImpuesto.
+    '''Control txtImpuesto.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnActualizarImpuesto As Global.System.Web.UI.WebControls.ImageButton
+    Protected WithEvents txtImpuesto As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control impuestoDS.
+    '''Control btnActualizarPrecio0.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents impuestoDS As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents btnActualizarPrecio0 As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''Control lblTotal.
+    '''Control txtTotal.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblTotal As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtTotal As Global.System.Web.UI.WebControls.TextBox
 End Class

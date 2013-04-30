@@ -153,6 +153,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Catalogos\FrmProvincia.aspx" />
     <Content Include="Catalogos\FrmCatalogoTipoAlopecia.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
@@ -310,6 +311,13 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.vb">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmProvincia.aspx.designer.vb">
+      <DependentUpon>FrmProvincia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmProvincia.aspx.vb">
+      <DependentUpon>FrmProvincia.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmCatalogoTipoAlopecia.aspx.designer.vb">
       <DependentUpon>FrmCatalogoTipoAlopecia.aspx</DependentUpon>

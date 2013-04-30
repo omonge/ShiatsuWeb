@@ -110,3 +110,4 @@ C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.vbproj.GenerateResource.Cache
 C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.dll
 C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.xml
 C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.pdb
+C:\ShiatsuWeb\ShiatsuWeb\obj\Debug\ShiatsuWeb.vbprojResolveAssemblyReference.cache

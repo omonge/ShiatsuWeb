@@ -81,7 +81,7 @@ Public Class FacturaDao
         coneccion = New MySqlConnection(SuperSecreto)
         'sql
         Dim sql1 As String = "UPDATE factura_detalle SET " +
-                            "fmodifica=@fmodifica, usuario=@usuario, cantidad=@cantidad " +
+                            "fmodifica=@fmodifica, usuario=@usuario, cantidad=@cantidad, precio=@precio " +
                             "WHERE factura=@factura AND producto=@producto "
  
         'adapter
@@ -93,6 +93,7 @@ Public Class FacturaDao
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@usuario", dato.metUsuario))
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@producto", dato.metProducto))
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@cantidad", dato.metCantidad))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@precio", dato.metPrecio))
         'abre
         coneccion.Open()
         'ejecuta
