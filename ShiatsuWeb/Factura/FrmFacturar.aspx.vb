@@ -115,10 +115,12 @@
                 End If
                 Return True
             End If
+
         Catch ex As Exception
             Me.lblMensaje.ForeColor = Drawing.Color.Red
             Me.lblMensaje.Text = "Error: " + ex.Message
         End Try
+        Return False
     End Function
 
     ''' <summary>

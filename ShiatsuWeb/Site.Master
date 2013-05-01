@@ -60,6 +60,7 @@
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoFrecuenciaCita.aspx" Text="Frecuencia" Value="Frecuencia"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoInventario.aspx" Text="Inventario" Value="Inventario"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTipoAlopecia.aspx" Text="Tipo Alopecia" Value="Tipo Alopecia"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTipoCliente.aspx" Text="Tipo Cliente" Value="Tipo Cliente"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Cita" Value="Cita">
                             <asp:MenuItem NavigateUrl="~/Citas/FrmCitas.aspx" Text="Mantenimiento" Value="Mantenimiento"></asp:MenuItem>
