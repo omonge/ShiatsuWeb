@@ -3,6 +3,7 @@
     Dim usuario As Usuario
     Dim facturaDao As FacturaDao = New FacturaDao()
     Dim inventarioDao As InventarioDao = New InventarioDao()
+    Dim citaDao As CitaDao = New CitaDao()
 
     '  Dermo, Capilar, Ionto, Regular, Precio Especial, Inicio
 
@@ -23,14 +24,16 @@
             Dim facturaEncabezado As FacturaEncabezado = Me.facturaDao.consultaEncabezadoFactura(CInt(Me.gvDatosP.SelectedRow.Cells(1).Text))
 
             Me.lblId.Text = facturaEncabezado.metFactura
-            Me.lblCliente.Text = facturaEncabezado.metCliente.metCedCliente
-            Me.lblTelefono.Text = facturaEncabezado.metCliente.metTelefonoCelular
-            Me.lblTipoCliente.Text = facturaEncabezado.metCliente.metTipoCliente
-            Me.lblUsuario.Text = facturaEncabezado.metUsuario
-            Me.lblFecha.Text = facturaEncabezado.metFecha
+            Me.txtCliente.Text = facturaEncabezado.metCliente.metCedCliente
+            Me.txtTelefono.Text = facturaEncabezado.metCliente.metTelefonoCelular
+            Me.txtTipoCliente.Text = facturaEncabezado.metCliente.metTipoCliente
+            Me.txtUsuario.Text = facturaEncabezado.metUsuario
+            Me.txtFecha.Text = facturaEncabezado.metFecha
 
             Me.gvProductos.DataBind()
             Me.montos()
+            Me.btnFacturar.Visible = True
+            Me.btnCancelar.Visible = True
 
         Catch ex As Exception
             Me.lblMensaje.ForeColor = Drawing.Color.Red
@@ -115,12 +118,11 @@
                 End If
                 Return True
             End If
-
         Catch ex As Exception
             Me.lblMensaje.ForeColor = Drawing.Color.Red
             Me.lblMensaje.Text = "Error: " + ex.Message
+            Return False
         End Try
-        Return False
     End Function
 
     ''' <summary>
@@ -129,6 +131,22 @@
     ''' <remarks></remarks>
     Sub limpiar()
         Me.txtCantidad.Text = ""
+    End Sub
+
+    ''' <summary>
+    ''' limpia los valores al agregar o modificar
+    ''' </summary>
+    ''' <remarks></remarks>
+    Sub limpiarEncabezado()
+        Me.txtImpuesto.Text = ""
+        Me.txtSubTotal.Text = ""
+        Me.txtTotal.Text = ""
+        Me.txtFecha.Text = ""
+        Me.txtTelefono.Text = ""
+        Me.txtCliente.Text = ""
+        Me.txtTipoCliente.Text = ""
+        Me.txtUsuario.Text = ""
+        Me.lblId.Text = ""
     End Sub
 
     Protected Sub btnModificarProducto_Click(sender As Object, e As EventArgs) Handles btnModificarProducto.Click
@@ -178,5 +196,32 @@
     
     Protected Sub chkIva_CheckedChanged(sender As Object, e As EventArgs) Handles chkIva.CheckedChanged
         Me.montos()
+    End Sub
+
+    Protected Sub btnFacturar_Click(sender As Object, e As EventArgs) Handles btnFacturar.Click, btnCancelar.Click
+        Try 
+            Dim facturaEncabezado As FacturaEncabezado = New FacturaEncabezado()
+            facturaEncabezado.metFactura = Me.lblId.Text
+            facturaEncabezado.metImpuesto = CDbl(Me.txtImpuesto.Text)
+            facturaEncabezado.metTotal = CDbl(Me.txtTotal.Text)
+            facturaEncabezado.metSubTotal = CDbl(Me.txtSubTotal.Text)
+            facturaEncabezado.metTipoPago = CDbl(Me.ddlTipoPago.SelectedValue)
+            facturaEncabezado.metEstado = facturaEncabezado.ESTADO_CERRADA
+            Me.facturaDao.modificarEncabezado(facturaEncabezado)
+            Dim cita As Cita = New Cita()
+            cita.metEstado = facturaEncabezado.ESTADO_CERRADA
+            cita.metUsuario = usuario.usuario
+            cita.metFmodifica = DateTime.Now
+            cita.metId = Me.lblId.Text
+            Me.citaDao.cierre(cita)
+            Me.btnFacturar.Visible = False
+            Me.btnCancelar.Visible = False
+            Me.limpiar()
+            Me.limpiarEncabezado() 
+            Me.gvDatosP.DataBind()
+        Catch ex As Exception
+            Me.lblMensaje.ForeColor = Drawing.Color.Red
+            Me.lblMensaje.Text = "Error: " + ex.Message
+        End Try
     End Sub
 End Class

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmFacturar.aspx.vb" Inherits="ShiatsuWeb.FrmFacturar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-  
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
@@ -36,7 +36,7 @@
         ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
         ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
         DeleteCommand="DELETE FROM cita WHERE id = ?"
-        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT  c.nombre FROM cat_cliente c WHERE c.cedCliente = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Pendiente')  ORDER BY hora ASC">
+        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT  c.nombre FROM cat_cliente c WHERE c.cedCliente = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Factura')  ORDER BY hora ASC">
          <DeleteParameters>
              <asp:Parameter Name="id" Type="Int32" />
         </DeleteParameters> 
@@ -49,30 +49,30 @@
      <h3>Factura</h3><hr>
    <table border="1" >
         <tr>
-        <td >Cliente:</td>
-        <td >
-            <asp:Label ID="lblCliente" runat="server"></asp:Label>
+        <td class="auto-style2" >Cliente:</td>
+        <td class="auto-style2" >
+            <asp:TextBox ID="txtCliente" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
         </td>
-        <td >
+        <td class="auto-style2" >
             Factura:</td>
-        <td >
+        <td class="auto-style2" >
             <asp:Label ID="lblId" runat="server" Font-Size="14pt" ForeColor="Red"></asp:Label>
         
         </td>
-        <td >
+        <td class="auto-style2" >
             </td>
     </tr> 
 
     <tr>
         <td >Tipo Cliente:</td>
-        <td >
-            <asp:Label ID="lblTipoCliente" runat="server"></asp:Label>
+        <td > 
+            <asp:TextBox ID="txtTipoCliente" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
         </td>
         <td >Usuario:</td>
         <td >
-            <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+            <asp:TextBox ID="txtUsuario" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
         </td>
         <td ></td>
@@ -80,13 +80,13 @@
     <tr>
         <td>Teléfono:</td>
         <td>
-            <asp:Label ID="lblTelefono" runat="server"></asp:Label>
+            <asp:TextBox ID="txtTelefono" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
         </td>
         <td>
             Fecha:</td>
         <td>
-            <asp:Label ID="lblFecha" runat="server"></asp:Label>
+            <asp:TextBox ID="txtFecha" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
             </td>
         <td>
@@ -132,7 +132,7 @@
         <td colspan="4" > 
         
 
-                        <asp:GridView ID="gvProductos" runat="server" CellPadding="4" DataSourceID="productosDS" AutoGenerateColumns="False" DataKeyNames="factura,producto" AllowPaging="True" AllowSorting="True" ForeColor="#333333" GridLines="None">
+                        <asp:GridView ID="gvProductos" runat="server" CellPadding="4" DataSourceID="productosDS" AutoGenerateColumns="False" DataKeyNames="factura,producto" AllowPaging="True" AllowSorting="True" ForeColor="#333333" GridLines="None" Width="90%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="True" />
@@ -230,7 +230,7 @@
                                     </td>
                                 </tr> 
                                 <tr>
-                                    <td >&nbsp;</td>
+                                    <td ></td>
                                     <td  >
             <asp:Label ID="lblMensajeDetalle" runat="server"></asp:Label>
                                     </td>
@@ -239,23 +239,33 @@
 
         </tr> 
         <tr>
-        <td colspan="2" > 
+        <td  > 
+        
+             Tipo Pago</td>
+        <td  > 
+        
+             <asp:DropDownList ID="ddlTipoPago" runat="server" DataSourceID="tipoPagoDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                                    </asp:DropDownList> 
+                                        <asp:SqlDataSource ID="tipoPagoDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_tipo_pago"></asp:SqlDataSource>
         
              </td>
-        <td > 
+        <td  > 
         
              Sub Total:</td>
-        <td > 
+        <td  > 
         
              <asp:TextBox ID="txtSubTotal" runat="server" Font-Bold="True" Width="100px" ReadOnly="True"></asp:TextBox>
         
              </td>
-        <td > 
+        <td  > 
         
              </td>
     </tr> 
         <tr>
-        <td colspan="2" > 
+        <td > 
+        
+             &nbsp;</td>
+        <td > 
         
              &nbsp;</td>
         <td > 
@@ -280,7 +290,18 @@
         
              <asp:TextBox ID="txtTotal" runat="server" Font-Bold="True" TextMode="Number" Width="100px" ReadOnly="True"></asp:TextBox>
             </td>
-        <td > &nbsp;</td>
+        <td > </td>
+    </tr> 
+        <tr>
+        <td colspan="2"  > 
+                                        <asp:Button ID="btnCancelar" runat="server" Text="Facturar" Visible="False" />
+            </td>
+        <td > 
+        &nbsp;</td>
+        <td > 
+        
+             </td>
+        <td > </td>
     </tr> 
     </table>
     <hr>

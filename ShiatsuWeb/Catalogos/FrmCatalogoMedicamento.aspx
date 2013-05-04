@@ -48,7 +48,7 @@
             <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
             <asp:BoundField DataField="id" HeaderText="Código" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="estado" HeaderText="Estado" SortExpression="estado" />
-            <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" />
+            <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" HtmlEncode="False" HtmlEncodeFormatString="False" />
              <asp:BoundField DataField="usuario" HeaderText="Usuario" SortExpression="usuario" />
              <asp:BoundField DataField="fmodifica" HeaderText="Fecha" SortExpression="fmodifica" />
         </Columns>

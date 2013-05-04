@@ -72,6 +72,36 @@ Public Class CitaDao
 
 
 
+    Public Sub cierre(ByRef dato As Cita)
+
+        'variables
+        Dim coneccion As MySqlConnection
+        Dim dataAdapter As MySqlDataAdapter
+        'conección
+        Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
+        coneccion = New MySqlConnection(SuperSecreto)
+        'sql
+        Dim sql As String = "UPDATE cita SET estado=@estado, usuario=@usuario, fmodifica=@fmodifica " +
+                            "WHERE id=@id"
+        'adapter
+        dataAdapter = New MySqlDataAdapter()
+        dataAdapter.UpdateCommand = New MySqlCommand(sql, coneccion)
+        'parametros 
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@estado", dato.metEstado)) 
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@usuario", dato.metUsuario))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@fmodifica", dato.metFmodifica))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@id", dato.metId))
+        'abre
+        coneccion.Open()
+        'ejecuta
+        dataAdapter.UpdateCommand.ExecuteNonQuery()
+        'cierra
+        coneccion.Close()
+
+    End Sub
+
+
+
     Public Function existe(ByRef dato As Cita) As Boolean
 
         'variables

@@ -57,6 +57,7 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio" Value="Inicio"></asp:MenuItem>
                         <asp:MenuItem Text="Catálogos" Value="Catálogos">
+                            <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoDiagnostico.aspx" Text="Diagnóstico" Value="Diagnóstico"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoFrecuenciaCita.aspx" Text="Frecuencia" Value="Frecuencia"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoInventario.aspx" Text="Inventario" Value="Inventario"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTipoAlopecia.aspx" Text="Tipo Alopecia" Value="Tipo Alopecia"></asp:MenuItem>
@@ -64,10 +65,13 @@
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoEnfermedad.aspx" Text="Enfermedad" Value="Enfermedad"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoMedicamento.aspx" Text="Medicamento" Value="Medicamento"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoPais.aspx" Text="Pais" Value="Pais"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoProvincia.aspx" Text="Provincia" Value="Provincia"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoSucursal.aspx" Text="Sucursal" Value="Sucursal"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoSuministro.aspx" Text="Suministro" Value="Suministro"></asp:MenuItem>
-                        </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoProvincia.aspx" Text="Provincia" Value="Provincia"></asp:MenuItem>
+                              <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoCanton.aspx" Text="Cantón" Value="Cantón"></asp:MenuItem>
+<asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoDistrito.aspx" Text="Distrito" Value="Distrito"></asp:MenuItem>
+                              <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTipoPago.aspx" Text="Tipo Pago" Value="Tipo Pago"></asp:MenuItem>
+                              </asp:MenuItem>
                         <asp:MenuItem Text="Cita" Value="Cita">
                             <asp:MenuItem NavigateUrl="~/Citas/FrmCitas.aspx" Text="Mantenimiento" Value="Mantenimiento"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Citas/FrmCitaCubiculo.aspx" Text="Cubiculo" Value="Cubiculo"></asp:MenuItem>

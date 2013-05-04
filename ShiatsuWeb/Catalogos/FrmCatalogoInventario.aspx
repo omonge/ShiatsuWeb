@@ -78,7 +78,7 @@
             <asp:BoundField DataField="cantidad" HeaderText="Cantidad" SortExpression="cantidad" >
             <ItemStyle HorizontalAlign="Right" />
             </asp:BoundField>
-            <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" />
+            <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" HtmlEncode="False" HtmlEncodeFormatString="False" />
             <asp:BoundField DataField="estado" HeaderText="Estado" SortExpression="estado" />
             <asp:BoundField DataField="precio1" HeaderText="Precio 1" SortExpression="precio1" DataFormatString=" {0:C}" >
             <ItemStyle HorizontalAlign="Right" />

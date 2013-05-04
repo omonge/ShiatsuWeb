@@ -27,7 +27,7 @@
     <tr>
         <td>Descripción</td>
         <td>
-            <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="100" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="100" Width="160px" ValidateRequestMode="Disabled"></asp:TextBox>
         </td>
     </tr> 
         <tr>
@@ -48,7 +48,7 @@
             <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
             <asp:BoundField DataField="id" HeaderText="Código" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="estado" HeaderText="Estado" SortExpression="estado" />
-            <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" />
+            <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" HtmlEncode="False" HtmlEncodeFormatString="False" />
              <asp:BoundField DataField="usuario" HeaderText="Usuario" SortExpression="usuario" />
              <asp:BoundField DataField="fmodifica" HeaderText="Fecha Modificación" SortExpression="fmodifica" />
         </Columns>

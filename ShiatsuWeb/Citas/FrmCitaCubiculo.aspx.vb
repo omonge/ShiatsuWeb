@@ -74,6 +74,7 @@ Public Class FrmCitaCubiculo
             Me.gvDatosF.DataBind()
             Me.gvDatosP.DataBind()
 
+            Me.lblId.Text = ""
             Me.lblMensaje.ForeColor = Drawing.Color.Blue
             Me.lblMensaje.Text = "Registro modificado"
          Catch ex As Exception

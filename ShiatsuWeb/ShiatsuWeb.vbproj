@@ -40,6 +40,7 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -153,7 +154,18 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="Catalogos\FrmProvincia.aspx" />
+    <Content Include="Catalogos\FrmCatalogoTipoPago.aspx" />
+    <Content Include="Catalogos\FrmCatalogoDistrito.aspx" />
+    <Content Include="Catalogos\FrmCatalogoCanton.aspx" />
+    <Content Include="Catalogos\FrmCatalogoEnfermedad.aspx" />
+    <Content Include="Catalogos\FrmCatalogoMedicamento.aspx" />
+    <Content Include="Catalogos\FrmCatalogoPais.aspx" />
+    <Content Include="Catalogos\FrmCatalogoProfesion.aspx" />
+    <Content Include="Catalogos\FrmCatalogoProvincia.aspx" />
+    <Content Include="Catalogos\FrmCatalogoSucursal.aspx" />
+    <Content Include="Catalogos\FrmCatalogoSuministro.aspx" />
+    <Content Include="Catalogos\FrmCatalogoTipoCliente.aspx" />
+    <Content Include="Catalogos\FrmCatalogoDiagnostico.aspx" />
     <Content Include="Catalogos\FrmCatalogoTipoAlopecia.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
@@ -217,7 +229,7 @@
     <Content Include="Images\update.png" />
     <Content Include="Login\FrmLogin.aspx" />
     <Content Include="Citas\FrmCitaCubiculo.aspx" />
-    <Content Include="FrmClientes.aspx" />
+    <Content Include="Catalogos\FrmCatalogoCliente.aspx" />
     <Content Include="Citas\FrmCitas.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -312,12 +324,89 @@
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.vb">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Catalogos\FrmProvincia.aspx.designer.vb">
-      <DependentUpon>FrmProvincia.aspx</DependentUpon>
+    <Compile Include="Catalogos\FrmCatalogoTipoPago.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoTipoPago.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Catalogos\FrmProvincia.aspx.vb">
-      <DependentUpon>FrmProvincia.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+    <Compile Include="Catalogos\FrmCatalogoTipoPago.aspx.vb">
+      <DependentUpon>FrmCatalogoTipoPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoDistrito.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoDistrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoDistrito.aspx.vb">
+      <DependentUpon>FrmCatalogoDistrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoCanton.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoCanton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoCanton.aspx.vb">
+      <DependentUpon>FrmCatalogoCanton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoEnfermedad.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoEnfermedad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoEnfermedad.aspx.vb">
+      <DependentUpon>FrmCatalogoEnfermedad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoMedicamento.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoMedicamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoMedicamento.aspx.vb">
+      <DependentUpon>FrmCatalogoMedicamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoPais.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoPais.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoPais.aspx.vb">
+      <DependentUpon>FrmCatalogoPais.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoProfesion.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoProfesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoProfesion.aspx.vb">
+      <DependentUpon>FrmCatalogoProfesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoProvincia.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoProvincia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoProvincia.aspx.vb">
+      <DependentUpon>FrmCatalogoProvincia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoSucursal.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoSucursal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoSucursal.aspx.vb">
+      <DependentUpon>FrmCatalogoSucursal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoSuministro.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoSuministro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoSuministro.aspx.vb">
+      <DependentUpon>FrmCatalogoSuministro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoTipoCliente.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoTipoCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoTipoCliente.aspx.vb">
+      <DependentUpon>FrmCatalogoTipoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoDiagnostico.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoDiagnostico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmCatalogoDiagnostico.aspx.vb">
+      <DependentUpon>FrmCatalogoDiagnostico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmCatalogoTipoAlopecia.aspx.designer.vb">
       <DependentUpon>FrmCatalogoTipoAlopecia.aspx</DependentUpon>
@@ -334,7 +423,19 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Dao\CitaDao.vb" />
+    <Compile Include="Dao\CantonDao.vb" />
+    <Compile Include="Dao\TipoPagoDao.vb" />
+    <Compile Include="Dao\DistritoDao.vb" />
+    <Compile Include="Dao\DiagnosticoDao.vb" />
+    <Compile Include="Dao\EnfermedadDao.vb" />
+    <Compile Include="Dao\MedicamentoDao.vb" />
+    <Compile Include="Dao\PaisDao.vb" />
+    <Compile Include="Dao\ProfesionDao.vb" />
+    <Compile Include="Dao\ProvinciaDao.vb" />
+    <Compile Include="Dao\SucursalDao.vb" />
+    <Compile Include="Dao\SuministroDao.vb" />
     <Compile Include="Dao\TipoAlopeciaDao.vb" />
+    <Compile Include="Dao\TipoClienteDao.vb" />
     <Compile Include="Factura\FrmFacturar.aspx.designer.vb">
       <DependentUpon>FrmFacturar.aspx</DependentUpon>
     </Compile>
@@ -368,11 +469,23 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="LogicaNegocio\Cliente.vb" />
+    <Compile Include="LogicaNegocio\Canton.vb" />
+    <Compile Include="LogicaNegocio\TipoPago.vb" />
+    <Compile Include="LogicaNegocio\Distrito.vb" />
+    <Compile Include="LogicaNegocio\Diagnostico.vb" />
+    <Compile Include="LogicaNegocio\Enfermedad.vb" />
+    <Compile Include="LogicaNegocio\Medicamento.vb" />
+    <Compile Include="LogicaNegocio\Pais.vb" />
+    <Compile Include="LogicaNegocio\Profesion.vb" />
+    <Compile Include="LogicaNegocio\Provincia.vb" />
+    <Compile Include="LogicaNegocio\Sucursal.vb" />
+    <Compile Include="LogicaNegocio\Suministro.vb" />
     <Compile Include="LogicaNegocio\TipoAlopecia.vb" />
     <Compile Include="LogicaNegocio\FacturaDetalle.vb" />
     <Compile Include="LogicaNegocio\FacturaEncabezado.vb" />
     <Compile Include="LogicaNegocio\FrecuenciaAsistencia.vb" />
     <Compile Include="LogicaNegocio\Inventario.vb" />
+    <Compile Include="LogicaNegocio\TipoCliente.vb" />
     <Compile Include="Login\FrmLogin.aspx.designer.vb">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
     </Compile>
@@ -387,11 +500,11 @@
       <DependentUpon>FrmCitaCubiculo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="FrmClientes.aspx.designer.vb">
-      <DependentUpon>FrmClientes.aspx</DependentUpon>
+    <Compile Include="Catalogos\FrmCatalogoCliente.aspx.designer.vb">
+      <DependentUpon>FrmCatalogoCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmClientes.aspx.vb">
-      <DependentUpon>FrmClientes.aspx</DependentUpon>
+    <Compile Include="Catalogos\FrmCatalogoCliente.aspx.vb">
+      <DependentUpon>FrmCatalogoCliente.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Citas\FrmCitas.aspx.designer.vb">

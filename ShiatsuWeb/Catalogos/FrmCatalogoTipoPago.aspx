@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmCatalogoTipoCliente.aspx.vb" Inherits="ShiatsuWeb.FrmCatalogoTipoCliente" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmCatalogoTipoPago.aspx.vb" Inherits="ShiatsuWeb.FrmCatalogoTipoPago" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
    
 </asp:Content>
@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h3>Mantenimiento Tipo Cliente</h3>
+    <h3>Mantenimiento Tipo Pago</h3>
    <table>
         <tr>
         <td >Id</td>
@@ -66,10 +66,10 @@
     <asp:SqlDataSource ID="frenciasDS" runat="server" 
         ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
         ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
-        DeleteCommand="DELETE FROM  cat_tipo_cliente  WHERE  id  = ?" 
-        InsertCommand="INSERT INTO  cat_tipo_cliente  ( id ,  estado , descripcion ) VALUES (?, ?, ?)" 
-        SelectCommand="SELECT  id ,  estado ,  descripcion,usuario,fmodifica  FROM  cat_tipo_cliente " 
-        UpdateCommand="UPDATE  cat_tipo_cliente  SET  estado  = ?,  descripcion  = ? WHERE  id  = ?">
+        DeleteCommand="DELETE FROM  cat_tipo_pago  WHERE  id  = ?" 
+        InsertCommand="INSERT INTO  cat_tipo_pago  ( id ,  estado , descripcion ) VALUES (?, ?, ?)" 
+        SelectCommand="SELECT  id ,  estado ,  descripcion,usuario,fmodifica  FROM  cat_tipo_pago " 
+        UpdateCommand="UPDATE  cat_tipo_pago  SET  estado  = ?,  descripcion  = ? WHERE  id  = ?">
         <DeleteParameters>
             <asp:Parameter Name="id" Type="Int32" />
         </DeleteParameters>

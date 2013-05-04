@@ -21,12 +21,46 @@ Public Class FacturaDao
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@usuario", dato.metUsuario))
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@factura", dato.metFactura))
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@fecha", Date.Now))
-        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@cliente", dato.metCliente))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@cliente", dato.metCliente.metCedCliente))
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@estado", dato.metEstado))
         'abre
         coneccion.Open()
         'ejecuta
         dataAdapter.InsertCommand.ExecuteNonQuery()
+        'cierra
+        coneccion.Close()
+
+    End Sub
+
+
+
+    Public Sub modificarEncabezado(ByRef dato As FacturaEncabezado)
+
+        'variables
+        Dim coneccion As MySqlConnection
+        Dim dataAdapter As MySqlDataAdapter
+        'conección
+        Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
+        coneccion = New MySqlConnection(SuperSecreto)
+        'sql
+        Dim sql As String = "UPDATE factura_encabezado " +
+                            "SET usuario=@usuario,estado=@estado,total=@total,subtotal=@subtotal,iva=@iva,tipo_pago=@tipo_pago " +
+                            "WHERE factura=@factura"
+        'adapter
+        dataAdapter = New MySqlDataAdapter()
+        dataAdapter.UpdateCommand = New MySqlCommand(sql, coneccion)
+        'parametros
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@usuario", dato.metUsuario))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@total", dato.metTotal))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@subtotal", dato.metSubTotal))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@iva", dato.metImpuesto))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@estado", dato.metEstado))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@factura", dato.metFactura))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@tipo_pago", dato.metTipoPago))
+        'abre
+        coneccion.Open()
+        'ejecuta
+        dataAdapter.UpdateCommand.ExecuteNonQuery()
         'cierra
         coneccion.Close()
 

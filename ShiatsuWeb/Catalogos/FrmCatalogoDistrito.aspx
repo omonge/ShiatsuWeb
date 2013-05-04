@@ -1,5 +1,11 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmCatalogoTipoCliente.aspx.vb" Inherits="ShiatsuWeb.FrmCatalogoTipoCliente" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmCatalogoDistrito.aspx.vb" Inherits="ShiatsuWeb.FrmCatalogoDistrito" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+   
+    <style type="text/css">
+    .auto-style1 {
+        width: 208px;
+    }
+</style>
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
@@ -7,7 +13,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h3>Mantenimiento Tipo Cliente</h3>
+    <h3>Mantenimiento Distrito</h3>
    <table>
         <tr>
         <td >Id</td>
@@ -24,10 +30,27 @@
                 </asp:DropDownList> 
         </td>
     </tr> 
+
+    <tr>
+        <td >Provincia</td>
+        <td class="auto-style1"> 
+            <asp:SqlDataSource ID="provinciaDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_provincia"></asp:SqlDataSource>
+            <asp:DropDownList ID="ddlProvincia" runat="server" DataSourceID="provinciaDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                </asp:DropDownList> 
+        </td>
+    </tr> 
+
+    <tr>
+        <td >Cantón</td>
+        <td class="auto-style1"><asp:DropDownList ID="ddlCanton" runat="server" DataSourceID="cantonDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                </asp:DropDownList> 
+            <asp:SqlDataSource ID="cantonDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_canton"></asp:SqlDataSource>
+        </td>
+    </tr> 
     <tr>
         <td>Descripción</td>
-        <td>
-            <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="100" Width="160px"></asp:TextBox>
+        <td class="auto-style1">
+            <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="100" Width="160px" ValidateRequestMode="Disabled"></asp:TextBox>
         </td>
     </tr> 
         <tr>
@@ -48,9 +71,11 @@
             <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
             <asp:BoundField DataField="id" HeaderText="Código" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="estado" HeaderText="Estado" SortExpression="estado" />
-            <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion"  HtmlEncode="False" HtmlEncodeFormatString="False" />
+            <asp:BoundField DataField="provincia" HeaderText="Provincia" SortExpression="provincia" HtmlEncode="False" HtmlEncodeFormatString="False" />
+            <asp:BoundField DataField="canton" HeaderText="Cantón" SortExpression="canton" HtmlEncode="False" HtmlEncodeFormatString="False" />
+            <asp:BoundField DataField="descripcion" HeaderText="Distrito" SortExpression="descripcion" HtmlEncode="False" HtmlEncodeFormatString="False" />
              <asp:BoundField DataField="usuario" HeaderText="Usuario" SortExpression="usuario" />
-             <asp:BoundField DataField="fmodifica" HeaderText="Fecha" SortExpression="fmodifica" />
+             <asp:BoundField DataField="fmodifica" HeaderText="Fecha Modificación" SortExpression="fmodifica" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -66,10 +91,12 @@
     <asp:SqlDataSource ID="frenciasDS" runat="server" 
         ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
         ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
-        DeleteCommand="DELETE FROM  cat_tipo_cliente  WHERE  id  = ?" 
-        InsertCommand="INSERT INTO  cat_tipo_cliente  ( id ,  estado , descripcion ) VALUES (?, ?, ?)" 
-        SelectCommand="SELECT  id ,  estado ,  descripcion,usuario,fmodifica  FROM  cat_tipo_cliente " 
-        UpdateCommand="UPDATE  cat_tipo_cliente  SET  estado  = ?,  descripcion  = ? WHERE  id  = ?">
+        DeleteCommand="DELETE FROM  cat_canton  WHERE  id  = ?" 
+        InsertCommand="INSERT INTO  cat_canton  ( id ,  estado , descripcion ) VALUES (?, ?, ?)" 
+        SelectCommand="SELECT  id , (select CONCAT(id,' - ',descripcion) from cat_provincia where id = provincia) provincia,
+                                    (select CONCAT(id,' - ',descripcion) from cat_canton  where id = canton) canton,
+                         estado ,  descripcion,usuario,fmodifica  FROM  cat_distrito " 
+        UpdateCommand="UPDATE  cat_canton  SET  estado  = ?,  descripcion  = ? WHERE  id  = ?">
         <DeleteParameters>
             <asp:Parameter Name="id" Type="Int32" />
         </DeleteParameters>

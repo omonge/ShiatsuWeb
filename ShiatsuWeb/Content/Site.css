@@ -387,30 +387,19 @@ fieldset {
         list-style: none;
     }
 
-        fieldset ol li {
-            padding-bottom: 5px;
-        }
+    fieldset ol li {
+        padding-bottom: 5px;
+    }
 
-    label {
-        display: b
-
-    input, textarea {
-        border: 1px solid #e2e2e2;
-        background: #fff;
-        color: #333;
+   label {
+        display: block;
         font-size: 1.2em;
-        padding: 5px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 6px;
-}
+        font-weight: 600;
+    }
 
-    f;
-        color: #333;
-        font-size: 1.2em;
-        margin: 5px 0 6px 0;
-        padding: 5px;
-        }
+    label.checkbox {
+        display: inline;
+    }
 
     textarea {
         font-family: inherit;
