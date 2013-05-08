@@ -23,15 +23,6 @@ Partial Public Class FrmCatalogoCliente
     Protected WithEvents ddlDiagnostico As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control btnActualizarPrecio1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnActualizarPrecio1 As Global.System.Web.UI.WebControls.ImageButton
-
-    '''<summary>
     '''Control diagnosticoDS.
     '''</summary>
     '''<remarks>
@@ -39,6 +30,15 @@ Partial Public Class FrmCatalogoCliente
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents diagnosticoDS As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control btnCargar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCargar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control txtIdentificacion.
@@ -149,6 +149,69 @@ Partial Public Class FrmCatalogoCliente
     Protected WithEvents RegularExpressionValidator4 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
+    '''Control ddlSexo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlSexo As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control txtLugarTrabajo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtLugarTrabajo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control txtFechaNacimiento.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtFechaNacimiento As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control txtFechaNacimiento_CalendarExtender.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtFechaNacimiento_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+
+    '''<summary>
+    '''Control txtNombreFactura.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtNombreFactura As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control ddlTipoAlopecia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlTipoAlopecia As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control tipoAlopecia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents tipoAlopecia As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
     '''Control ddlProvincia.
     '''</summary>
     '''<remarks>
@@ -257,6 +320,24 @@ Partial Public Class FrmCatalogoCliente
     Protected WithEvents distrioDS As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''Control ddlFrecuenciaCita.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlFrecuenciaCita As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control frecuenciaCita.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents frecuenciaCita As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
     '''Control txtDireccion.
     '''</summary>
     '''<remarks>
@@ -264,6 +345,15 @@ Partial Public Class FrmCatalogoCliente
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtDireccion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control ddlEstado.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlEstado As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''Control btnAgregar.

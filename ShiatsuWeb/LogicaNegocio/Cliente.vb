@@ -14,10 +14,12 @@
     Dim profesion As Integer
     Dim telefonoCasa As String
     Dim telefonoCelular As String
+    Dim usuario As String
     Dim provincia As Integer
     Dim canton As Integer
     Dim distrito As Integer
     Dim tipoCliente As Integer
+    Dim tipoAlopecia As Integer
     Dim fmodifica As DateTime
 
     Public Property metDireccion() As String
@@ -29,12 +31,39 @@
         End Set
     End Property
 
+    Public Property metUsuario() As String
+        Get
+            Return Me.usuario
+        End Get
+        Set(ByVal value As String)
+            Me.usuario = value
+        End Set
+    End Property
+
     Public Property metTipoCliente() As Integer
         Get
             Return Me.tipoCliente
         End Get
         Set(ByVal value As Integer)
             Me.tipoCliente = value
+        End Set
+    End Property
+
+    Public Property metTipoAlopecia() As Integer
+        Get
+            Return Me.tipoAlopecia
+        End Get
+        Set(ByVal value As Integer)
+            Me.tipoAlopecia = value
+        End Set
+    End Property
+
+    Public Property metProvincia() As Integer
+        Get
+            Return Me.provincia
+        End Get
+        Set(ByVal value As Integer)
+            Me.provincia = value
         End Set
     End Property
 
@@ -98,6 +127,15 @@
         End Get
         Set(ByVal value As String)
             Me.estado = value
+        End Set
+    End Property
+
+    Public Property metNombre() As String
+        Get
+            Return Me.nombre
+        End Get
+        Set(ByVal value As String)
+            Me.nombre = value
         End Set
     End Property
 

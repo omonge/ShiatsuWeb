@@ -94,7 +94,7 @@ Public Class DiagnosticoDao
 
 
 
-    Public Function existe(ByRef dato As Cita) As Boolean
+    Public Function existe(ByRef dato As Diagnostico) As Boolean
 
         'variables
         Dim coneccion As MySqlConnection
@@ -107,8 +107,7 @@ Public Class DiagnosticoDao
         Dim sql As String = "select cedcliente from cat_diagnostico where cedcliente = @cedcliente"
         dataAdapter = New MySqlDataAdapter(sql, coneccion)
         'parametros
-        dataAdapter.SelectCommand.Parameters.Add(New MySqlParameter("@cedcliente", MySqlDbType.Int32))
-        dataAdapter.SelectCommand.Parameters("@cedcliente").Value = dato.metId
+        dataAdapter.SelectCommand.Parameters.Add(New MySqlParameter("@cedcliente", dato.metCedCliente)) 
         ''Creando el dataset y cargandolo
         dataSet = New DataSet()
         dataAdapter.Fill(dataSet, "cat_diagnostico")

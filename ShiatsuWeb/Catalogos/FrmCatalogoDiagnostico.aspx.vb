@@ -167,7 +167,7 @@
                     Me.txtApellido1.Text = Me.gvDatos.SelectedRow.Cells(2).Text.Split(" ")(0)
                     Me.txtApellido2.Text = Me.gvDatos.SelectedRow.Cells(2).Text.Split(" ")(1)
                     Me.txtNombre.Text = Me.gvDatos.SelectedRow.Cells(2).Text.Split(" ")(2)
-                    Me.txtNombre.Text += Me.gvDatos.SelectedRow.Cells(2).Text.Split(" ")(3)
+                    Me.txtNombre.Text += " " + Me.gvDatos.SelectedRow.Cells(2).Text.Split(" ")(3)
             End Select
 
            
