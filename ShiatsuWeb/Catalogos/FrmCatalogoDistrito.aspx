@@ -17,14 +17,14 @@
    <table>
         <tr>
         <td >Id</td>
-        <td class="auto-style1">
+        <td >
             <asp:TextBox ID="txtId" runat="server" MaxLength="10" Width="160px" Enabled="False"></asp:TextBox>
         </td>
     </tr> 
 
     <tr>
         <td >Estado</td>
-        <td class="auto-style1"><asp:DropDownList ID="ddlEstados" runat="server" DataSourceID="" DataTextField="" DataValueField="" Width="160px">
+        <td ><asp:DropDownList ID="ddlEstados" runat="server" DataSourceID="" DataTextField="" DataValueField="" Width="160px">
             <asp:ListItem Value="Activo">Activo</asp:ListItem>
             <asp:ListItem Value="Inactivo">Inactivo</asp:ListItem>
                 </asp:DropDownList> 
@@ -33,7 +33,7 @@
 
     <tr>
         <td >Provincia</td>
-        <td class="auto-style1"> 
+        <td > 
             <asp:SqlDataSource ID="provinciaDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_provincia"></asp:SqlDataSource>
             <asp:DropDownList ID="ddlProvincia" runat="server" DataSourceID="provinciaDS" DataTextField="descripcion" DataValueField="id" Width="160px">
                 </asp:DropDownList> 
@@ -42,14 +42,14 @@
 
     <tr>
         <td >Cantón</td>
-        <td class="auto-style1"><asp:DropDownList ID="ddlCanton" runat="server" DataSourceID="cantonDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+        <td ><asp:DropDownList ID="ddlCanton" runat="server" DataSourceID="cantonDS" DataTextField="descripcion" DataValueField="id" Width="160px">
                 </asp:DropDownList> 
             <asp:SqlDataSource ID="cantonDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_canton"></asp:SqlDataSource>
         </td>
     </tr> 
     <tr>
         <td>Descripción</td>
-        <td class="auto-style1">
+        <td >
             <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="100" Width="160px" ValidateRequestMode="Disabled"></asp:TextBox>
         </td>
     </tr> 

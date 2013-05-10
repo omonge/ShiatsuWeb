@@ -59,15 +59,6 @@ Partial Public Class FrmLogin
     Protected WithEvents btnValidar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control hlk.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents hlk As Global.System.Web.UI.WebControls.HyperLink
-
-    '''<summary>
     '''Control lblError.
     '''</summary>
     '''<remarks>

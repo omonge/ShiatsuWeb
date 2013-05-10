@@ -11,14 +11,14 @@
    <table>
         <tr>
         <td >Id</td>
-        <td class="auto-style1">
+        <td >
             <asp:TextBox ID="txtId" runat="server" MaxLength="10" Width="160px" Enabled="False"></asp:TextBox>
         </td>
     </tr> 
 
     <tr>
         <td >Estado</td>
-        <td class="auto-style1"><asp:DropDownList ID="ddlEstados" runat="server" DataSourceID="" DataTextField="" DataValueField="" Width="160px">
+        <td ><asp:DropDownList ID="ddlEstados" runat="server" DataSourceID="" DataTextField="" DataValueField="" Width="160px">
             <asp:ListItem Value="Activo">Activo</asp:ListItem>
             <asp:ListItem Value="Inactivo">Inactivo</asp:ListItem>
                 </asp:DropDownList> 

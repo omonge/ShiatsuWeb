@@ -7,4 +7,5 @@
     Public estado As String
     Public dato As Object
     Public cubiculo As Integer
+    Public caja As Integer
 End Class

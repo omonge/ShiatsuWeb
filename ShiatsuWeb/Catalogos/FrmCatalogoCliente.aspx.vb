@@ -42,7 +42,7 @@
     ''' <returns></returns>
     ''' <remarks></remarks>
     Function validar() As Boolean
-        If (Me.txtIdentificacion.Text = "" Or Me.txtNombre.Text = "") Then
+        If (Me.txtIdentificacion.Text = "" Or Me.txtNombre.Text = "" Or Me.txtFechaNacimiento.Text = "") Then
             Me.lblMensaje.ForeColor = Drawing.Color.Red
             Me.lblMensaje.Text = "Valores requeridos"
             Return False
@@ -60,7 +60,7 @@
                 cliente.metEstado = Me.ddlEstado.SelectedValue
                 cliente.metFmodifica = DateTime.Now
                 cliente.metCedCliente = Me.txtIdentificacion.Text
-                cliente.metNombre = Me.txtNombre.Text
+                cliente.metNombre = Me.txtApellido1.Text + " " + Me.txtApellido2.Text + " " + Me.txtNombre.Text
                 cliente.metFacturaNombre = Me.txtNombreFactura.Text
                 cliente.metEmail1 = Me.txtCorreoPrincipal.Text
                 cliente.metEmail2 = Me.txtCorreoSecundario.Text
@@ -68,16 +68,20 @@
                 cliente.metProvincia = CInt(Me.ddlProvincia.SelectedValue)
                 cliente.metCanton = CInt(Me.ddlCanton.SelectedValue)
                 cliente.metDistrito = CInt(Me.ddlDistrito.SelectedValue)
-                cliente.metFechaNacimiento = Convert.ToDateTime(Request.Form("datepicker"))
+                cliente.metFechaNacimiento = Convert.ToDateTime(Me.txtFechaNacimiento.Text)
                 cliente.metFrecuenciaCita = Me.ddlFrecuenciaCita.SelectedValue
                 cliente.metLugarTrabajo = Me.txtLugarTrabajo.Text
-                cliente.metNacionalidad = ""
-                cliente.metProfesion = Me.ddlProfesion.Text
-                cliente.metSexo = CInt(Me.ddlSexo.SelectedValue)
+                'cliente.metNacionalidad = ""
+                cliente.metProfesion = Me.ddlProfesion.SelectedValue
+                cliente.metSexo = Me.ddlSexo.SelectedValue
                 cliente.metTelefonoCasa = Me.txtTelefonoCasa.Text
                 cliente.metTelefonoCelular = Me.txtTelefonoCelular.Text
                 cliente.metTipoAlopecia = CInt(Me.ddlTipoAlopecia.SelectedValue)
                 cliente.metTipoCliente = Me.ddlTipocliente.SelectedValue
+
+                If (cliente.metFacturaNombre = "") Then
+                    cliente.metFacturaNombre = cliente.metNombre
+                End If
                  
                 Me.clienteDao.insertar(cliente)
                 Me.limpiar()
@@ -104,8 +108,7 @@
         Me.txtCorreoPrincipal.Text = ""
         Me.txtCorreoSecundario.Text = ""
         Me.txtDireccion.Text = ""
-        Me.txtLugarTrabajo.Text = ""
-        Me.ddlProfesion.Text = ""
+        Me.txtLugarTrabajo.Text = "" 
         Me.txtTelefonoCasa.Text = ""
         Me.txtTelefonoCelular.Text = ""
 
@@ -122,24 +125,27 @@
                 cliente.metFmodifica = DateTime.Now
                 cliente.metCedCliente = Me.txtIdentificacion.Text
                 cliente.metNombre = Me.txtNombre.Text
+                cliente.metNombre = Me.txtApellido1.Text + " " + Me.txtApellido2.Text + " " + Me.txtNombre.Text
                 cliente.metFacturaNombre = Me.txtNombreFactura.Text
-                cliente.metEmail1 = Me.txtCorreoPrincipal.Text
                 cliente.metEmail2 = Me.txtCorreoSecundario.Text
                 cliente.metDireccion = Me.txtDireccion.Text
                 cliente.metProvincia = CInt(Me.ddlProvincia.SelectedValue)
                 cliente.metCanton = CInt(Me.ddlCanton.SelectedValue)
                 cliente.metDistrito = CInt(Me.ddlDistrito.SelectedValue)
-                cliente.metFechaNacimiento = ""
+                cliente.metFechaNacimiento = Convert.ToDateTime(Me.txtFechaNacimiento.Text)
                 cliente.metFrecuenciaCita = Me.ddlFrecuenciaCita.SelectedValue
                 cliente.metLugarTrabajo = Me.txtLugarTrabajo.Text
-                cliente.metNacionalidad = ""
-                cliente.metProfesion = Me.ddlProfesion.Text
-                cliente.metSexo = CInt(Me.ddlSexo.SelectedValue)
+                'cliente.metNacionalidad = ""
+                cliente.metProfesion = Me.ddlProfesion.SelectedValue
+                cliente.metSexo = Me.ddlSexo.SelectedValue
                 cliente.metTelefonoCasa = Me.txtTelefonoCasa.Text
                 cliente.metTelefonoCelular = Me.txtTelefonoCelular.Text
                 cliente.metTipoAlopecia = CInt(Me.ddlTipoAlopecia.SelectedValue)
                 cliente.metTipoCliente = Me.ddlTipocliente.SelectedValue
 
+                If (cliente.metFacturaNombre = "") Then
+                    cliente.metFacturaNombre = cliente.metNombre
+                End If
                 Me.clienteDao.modificar(cliente)
 
                 Me.limpiar()
@@ -202,8 +208,8 @@
             Me.txtLugarTrabajo.Text = cliente.metLugarTrabajo
             'Me.dd.Text = Me.gvDatos.SelectedRow.Cells(16).Text nacionalidad
 
-            '13 <asp:BoundField DataField="fecha_nacimiento" HeaderText="fecha_nacimiento" SortExpression="fecha_nacimiento" Visible="False" />
-            Me.ddlProfesion.Text = cliente.metProfesion
+            Me.txtFechaNacimiento.Text = cliente.metFechaNacimiento
+            Me.ddlProfesion.SelectedValue = cliente.metProfesion
             Me.ddlSexo.SelectedValue = cliente.metSexo
             Me.txtTelefonoCasa.Text = cliente.metTelefonoCasa
             Me.txtTelefonoCelular.Text = cliente.metTelefonoCelular

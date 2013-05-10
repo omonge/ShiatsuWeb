@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class FrmCatalogoCliente
 
     '''<summary>
+    '''Control TabContainer1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TabContainer1 As Global.AjaxControlToolkit.TabContainer
+
+    '''<summary>
+    '''Control TabPanel1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TabPanel1 As Global.AjaxControlToolkit.TabPanel
+
+    '''<summary>
     '''Control ddlDiagnostico.
     '''</summary>
     '''<remarks>
@@ -194,22 +212,31 @@ Partial Public Class FrmCatalogoCliente
     Protected WithEvents txtNombreFactura As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control ddlTipoAlopecia.
+    '''Control ddlProfesion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents ddlTipoAlopecia As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlProfesion As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control tipoAlopecia.
+    '''Control profesionDS.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents tipoAlopecia As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents profesionDS As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control TabPanel2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TabPanel2 As Global.AjaxControlToolkit.TabPanel
 
     '''<summary>
     '''Control ddlProvincia.
@@ -228,24 +255,6 @@ Partial Public Class FrmCatalogoCliente
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents provinciaDS As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''Control ddlProfesion.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddlProfesion As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control profesionDS.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents profesionDS As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''Control ddlCanton.
@@ -275,24 +284,6 @@ Partial Public Class FrmCatalogoCliente
     Protected WithEvents cantonDS As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''Control ddlTipocliente.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddlTipocliente As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control tipoClienteDS.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents tipoClienteDS As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
     '''Control ddlDistrito.
     '''</summary>
     '''<remarks>
@@ -320,6 +311,69 @@ Partial Public Class FrmCatalogoCliente
     Protected WithEvents distrioDS As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''Control txtDireccion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtDireccion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control TabPanel3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TabPanel3 As Global.AjaxControlToolkit.TabPanel
+
+    '''<summary>
+    '''Control ddlTipoAlopecia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlTipoAlopecia As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control tipoAlopecia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents tipoAlopecia As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control ddlTipocliente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlTipocliente As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control tipoClienteDS.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents tipoClienteDS As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control TabPanel4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TabPanel4 As Global.AjaxControlToolkit.TabPanel
+
+    '''<summary>
     '''Control ddlFrecuenciaCita.
     '''</summary>
     '''<remarks>
@@ -336,15 +390,6 @@ Partial Public Class FrmCatalogoCliente
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents frecuenciaCita As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''Control txtDireccion.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtDireccion As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control ddlEstado.

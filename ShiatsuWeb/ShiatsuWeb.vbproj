@@ -235,7 +235,9 @@
     <Content Include="Catalogos\FrmCatalogoFrecuenciaCita.aspx" />
     <Content Include="Catalogos\FrmCatalogoInventario.aspx" />
     <Content Include="Factura\FrmFacturar.aspx" />
-    <Content Include="FrmFacturaFecha.aspx" />
+    <Content Include="Login\FrmSalir.aspx" />
+    <Content Include="Login\FrmRegistro.aspx" />
+    <Content Include="Reportes\FrmVentasPorFecha.aspx" />
     <Content Include="Images\update.png" />
     <Content Include="Login\FrmLogin.aspx" />
     <Content Include="Citas\FrmCitaCubiculo.aspx" />
@@ -479,11 +481,25 @@
       <DependentUpon>FrmCatalogoInventario.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="FrmFacturaFecha.aspx.designer.vb">
-      <DependentUpon>FrmFacturaFecha.aspx</DependentUpon>
+    <Compile Include="Login\FrmSalir.aspx.designer.vb">
+      <DependentUpon>FrmSalir.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmFacturaFecha.aspx.vb">
-      <DependentUpon>FrmFacturaFecha.aspx</DependentUpon>
+    <Compile Include="Login\FrmSalir.aspx.vb">
+      <DependentUpon>FrmSalir.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Login\FrmRegistro.aspx.designer.vb">
+      <DependentUpon>FrmRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FrmRegistro.aspx.vb">
+      <DependentUpon>FrmRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmVentasPorFecha.aspx.designer.vb">
+      <DependentUpon>FrmVentasPorFecha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmVentasPorFecha.aspx.vb">
+      <DependentUpon>FrmVentasPorFecha.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="LogicaNegocio\Cliente.vb" />

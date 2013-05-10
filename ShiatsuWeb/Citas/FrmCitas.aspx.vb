@@ -14,10 +14,32 @@
         If (Me.lblFecha.Text = "") Then
             Me.lblFecha.Text = DateTime.Now.ToString("yyyyMMdd")
             Me.lblFechaTitulo.Text = Date.Now.ToLongDateString()
+            Me.hfHora.Value = DateTime.Now.ToString("HH:00")
+            Me.graficar()
         End If
         Me.hfHoraActual.Value = DateTime.Now.ToString("HH:MM")
-        Me.lblMensaje.Text = ""
+        Me.lblMensaje.Text = "" 
+    End Sub
 
+
+    Protected Sub graficar()
+
+        Dim serie1(Me.gvResumen.Rows().Count) As Decimal
+        Dim serie2(Me.gvResumen.Rows().Count) As Decimal
+        Dim categoriesAxis As String = ""
+
+        For Each dato As GridViewRow In Me.gvResumen.Rows()
+            categoriesAxis += dato.Cells(1).Text.Replace(":00", "") + ","
+            serie1(dato.RowIndex) = CDec(dato.Cells(2).Text)
+            serie2(dato.RowIndex) = CDec(dato.Cells(3).Text)
+        Next
+
+        Me.BarChart1.ChartTitle = "Citas del " + Me.lblFechaTitulo.Text
+        Me.BarChart1.ChartType = AjaxControlToolkit.ChartType.StackedColumn ' tipo de estilo de grafico
+        Me.BarChart1.CategoriesAxis = categoriesAxis.Substring(0, categoriesAxis.Length - 1) ' valores eje x
+        Me.BarChart1.Series(0).Data = serie1 'citasConcretadas
+        Me.BarChart1.Series(1).Data = serie2 'citasDisponibles 
+        Me.BarChart1.DataBind()
     End Sub
 
     Protected Sub calAgenda_SelectionChanged(sender As Object, e As EventArgs) Handles calAgenda.SelectionChanged
@@ -32,6 +54,7 @@
 
         Me.btnAgregar.Visible = True
         Me.btnModificar.Visible = False
+        Me.refresh()
     End Sub
 
 
@@ -42,11 +65,11 @@
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Try 
-        If (Me.lblFecha.Text = "") Then
-            Me.lblMensaje.ForeColor = Drawing.Color.Red
-            Me.lblMensaje.Text = "Valores requeridos"
-        Else
+        Try
+            If (Me.lblFecha.Text = "") Then
+                Me.lblMensaje.ForeColor = Drawing.Color.Red
+                Me.lblMensaje.Text = "Valores requeridos"
+            Else
 
                 Dim cita As Cita = New Cita()
                 cita.metCubiculo = Me.ddlCubiculos.Text
@@ -59,13 +82,11 @@
                 cita.metUsuario = usuario.usuario
                 Me.citaDao.insertar(cita)
 
-                Me.gvDatos.DataBind()
-                Me.gvResumen.DataBind()
-
-            Me.lblMensaje.ForeColor = Drawing.Color.Blue
-            Me.lblMensaje.Text = "Registro agregado"
-        End If
-         Catch ex As Exception
+                Me.lblMensaje.ForeColor = Drawing.Color.Blue
+                Me.lblMensaje.Text = "Registro agregado"
+                Me.refresh()
+            End If
+        Catch ex As Exception
             Me.lblMensaje.ForeColor = Drawing.Color.Red
             Me.lblMensaje.Text = "Error: " + ex.Message
         End Try
@@ -78,7 +99,7 @@
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Protected Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        Try 
+        Try
             If (Me.lblFecha.Text = "") Then
                 Me.lblMensaje.ForeColor = Drawing.Color.Red
                 Me.lblMensaje.Text = "Valores requeridos"
@@ -93,15 +114,15 @@
                 cita.metObservaciones = Me.txtObservaciones.Text
                 cita.metFmodifica = DateTime.Now
                 cita.metUsuario = usuario.usuario
-                Me.citaDao.modificar(cita) 
+                Me.citaDao.modificar(cita)
 
-                Me.gvDatos.DataBind()
-                Me.gvResumen.DataBind()
-
+                Me.btnAgregar.Visible = True
+                Me.btnModificar.Visible = False
                 Me.lblMensaje.ForeColor = Drawing.Color.Blue
                 Me.lblMensaje.Text = "Registro modificado"
+                Me.refresh()
             End If
-         Catch ex As Exception
+        Catch ex As Exception
             Me.lblMensaje.ForeColor = Drawing.Color.Red
             Me.lblMensaje.Text = "Error: " + ex.Message
         End Try
@@ -128,10 +149,25 @@
 
             Me.btnAgregar.Visible = False
             Me.btnModificar.Visible = True
+             Me.refresh()
         End If
     End Sub
 
-    Protected Sub gvDatos_RowDeleted(sender As Object, e As GridViewDeletedEventArgs) Handles gvDatos.RowDeleted
-        Me.gvResumen.DataBind()
+
+    Protected Sub gvResumen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles gvResumen.SelectedIndexChanged
+        Me.hfHora.Value = Me.gvResumen.SelectedRow.Cells(1).Text
+        Me.refresh()
     End Sub
+
+
+    Protected Sub gvDatos_RowDeleted(sender As Object, e As GridViewDeletedEventArgs) Handles gvDatos.RowDeleted
+        Me.refresh()
+    End Sub
+
+    Protected Sub refresh()
+        Me.gvDatos.DataBind()
+        Me.gvResumen.DataBind()
+        Me.graficar()
+    End Sub
+
 End Class

@@ -10,6 +10,7 @@
              <asp:GridView ID="gvResumen" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="hora" DataSourceID="citasDS" ForeColor="#333333" GridLines="None">
                  <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                  <Columns>
+                     <asp:CommandField ShowSelectButton="True" />
                      <asp:BoundField DataField="hora" HeaderText="Hora" ReadOnly="True" SortExpression="hora" />
                      <asp:BoundField DataField="cantidad" HeaderText="Cantidad" SortExpression="cantidad" >
                      <ItemStyle HorizontalAlign="Right" />
@@ -43,28 +44,39 @@
             </SelectParameters>
     </asp:SqlDataSource>
 
+             <asp:HiddenField ID="hfHora" runat="server" />
         </td>
         <td>
-             <asp:Calendar ID="calAgenda" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="315px" NextPrevFormat="FullMonth" Width="315px" SelectionMode="DayWeekMonth">
-                 <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                 <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                 <OtherMonthDayStyle ForeColor="#999999" />
-                 <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                 <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                 <TodayDayStyle BackColor="#CCCCCC" />
-             </asp:Calendar>
+             <ajaxToolkit:BarChart ID="BarChart1" runat="server" 
+                    ChartHeight="300" ChartWidth="450" ChartType="Column"  
+                    ChartTitleColor="DarkBlue" BaseLineColor="Black" 
+                    ValueAxisLineColor="#Grace"  CategoryAxisLineColor="Grace" Width="450px" >
+                    <Series>
+                         <ajaxToolkit:BarChartSeries Name="Citas Concretadas " BarColor="Red"  />
+                         <ajaxToolkit:BarChartSeries Name="Citas Disponibles" BarColor="Green"  />
+                    </Series>
+             </ajaxToolkit:BarChart>
              
         </td>
          <td>
              <table>
                  <tr>
+                    <td colspan="2"><asp:Label ID="lblFecha" runat="server" Visible="False"></asp:Label>
+                        <asp:Calendar ID="calAgenda" runat="server" BackColor="White" BorderColor="White" Font-Names="Verdana" Font-Size="7pt" ForeColor="Black" BorderWidth="1px" NextPrevFormat="FullMonth">
+                            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#999999" />
+                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                            <TitleStyle BackColor="White"   Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                            <TodayDayStyle BackColor="#CCCCCC" />
+                        </asp:Calendar>
+                     </td>
+                </tr>
+                  <tr>
                     <td>Id</td>
-                    <td><asp:Label ID="lblId" runat="server"></asp:Label></td>
-                </tr>
-                <tr>
-                    <td>Fecha</td>
-                    <td><asp:Label ID="lblFecha" runat="server"></asp:Label></td>
-                </tr>
+                    <td><asp:Label ID="lblId" runat="server"></asp:Label>
+                    </td>
+                </tr> 
                   <tr>
                     <td>Hora</td>
                     <td><asp:DropDownList ID="ddlHoras" runat="server" DataSourceID="horaDB" DataTextField="hora" DataValueField="hora" Width="160px">
@@ -102,25 +114,30 @@
                    <tr>
                     <td>Observaciones</td>
                     <td>    
-                        <asp:TextBox ID="txtObservaciones" runat="server" Height="60px" MaxLength="100" TextMode="MultiLine" Width="160px" ValidateRequestMode="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtObservaciones" runat="server" MaxLength="100" Width="160px" ValidateRequestMode="Disabled"></asp:TextBox>
                        </td>
                 </tr>
-             </table>      
-             <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />      
+             </table>    
+              <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />      
              <asp:Button ID="btnModificar" runat="server" Text="Modificar" Visible="False" />
              <asp:HiddenField ID="hfHoraActual" runat="server" />
            
              <br>
-             <asp:Label ID="lblMensaje" runat="server"></asp:Label> 
-        </td>
-        
-    </tr> 
+             <asp:Label ID="lblMensaje" runat="server"></asp:Label>   
+             </td>
+                     <td>
+                      
+                     </td>
+                 </tr>
+                  
     </table>
    
+
     <h3>Citas del 
         <asp:Label ID="lblFechaTitulo" runat="server"></asp:Label>
+        
     </h3> 
-    <asp:GridView ID="gvDatos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDB">
+    <asp:GridView ID="gvDatos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDB" Width="100%">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" ShowDeleteButton="true" />
@@ -130,7 +147,7 @@
             <asp:BoundField DataField="cliente" HeaderText="Cliente" SortExpression="cliente" />
             <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
             <asp:BoundField DataField="cubiculo" HeaderText="Cubiculo" SortExpression="cubiculo" > 
-            <ItemStyle HorizontalAlign="Right" />
+            <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
             <asp:BoundField DataField="observaciones" HeaderText="Observaciones" SortExpression="observaciones" HtmlEncode="False" HtmlEncodeFormatString="False" />
         </Columns>
@@ -149,12 +166,13 @@
         ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
         ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
         DeleteCommand="DELETE FROM cita WHERE id = ?"
-        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT c.nombre  FROM cat_cliente c WHERE c.cedcliente = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (estado = 'Pendiente') ORDER BY hora ASC">
+        SelectCommand="SELECT id, fecha, hora,observaciones, telefono,cliente, (SELECT c.nombre  FROM cat_cliente c WHERE c.cedcliente = cliente ) nombre ,cubiculo FROM cita WHERE (fecha = ?) AND (hora = ?) AND (estado = 'Pendiente') ORDER BY hora ASC">
          <DeleteParameters>
              <asp:Parameter Name="id" Type="Int32" />
         </DeleteParameters> 
         <SelectParameters>
             <asp:ControlParameter ControlID="lblFecha" Name="fecha" PropertyName="Text" Type="String" /> 
+             <asp:ControlParameter ControlID="hfHora" Name="hora" PropertyName="Value" Type="String" /> 
         </SelectParameters>
     </asp:SqlDataSource>
 

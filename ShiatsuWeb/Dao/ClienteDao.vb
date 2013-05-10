@@ -64,9 +64,11 @@ Public Class ClienteDao
         Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
         coneccion = New MySqlConnection(SuperSecreto)
         'sql
-        Dim sql As String = "UPDATE cat_cliente SET usuario=@usuario,estado=@estado,fmodifica=@fmodifica,cedcliente=@cedcliente,nombre=@nombre,nombre_factura=@nombre_factura, " +
-                          "email1=@email1, email2=@email2, direccion=@direccion, provincia=@provincia, canton=@canton, distrito=@distrito,fecha_nacimiento=@fecha_nacimiento, frecuencia_cita=@frecuencia_cita, lugar_profesion=@lugar_profesion,nacionalidad@nacionalidad, " +
-                          "profesion=@profesion,sexo=@sexo,telefono_casa=@telefono_casa,telefono_celular=@telefono_celular,tipo_alopecia=@tipo_alopecia,tipo_cliente=@tipo_cliente"
+        Dim sql As String = "UPDATE cat_cliente SET usuario=@usuario,estado=@estado,fmodifica=@fmodifica,nombre=@nombre,nombre_factura=@nombre_factura, " +
+                          "email1=@email1, email2=@email2, direccion=@direccion, provincia=@provincia, canton=@canton, distrito=@distrito,fecha_nacimiento=@fecha_nacimiento, " +
+                          " frecuencia_cita=@frecuencia_cita, lugar_profesion=@lugar_profesion,nacionalidad=@nacionalidad, " +
+                          "profesion=@profesion,sexo=@sexo,telefono_casa=@telefono_casa,telefono_celular=@telefono_celular,tipo_alopecia=@tipo_alopecia,tipo_cliente=@tipo_cliente " +
+                          "WHERE cedcliente=@cedcliente"
 
         'adapter
         dataAdapter = New MySqlDataAdapter()

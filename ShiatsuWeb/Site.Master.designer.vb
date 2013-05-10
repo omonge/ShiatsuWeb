@@ -32,13 +32,40 @@ Partial Public Class SiteMaster
     Protected WithEvents lblUsuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control Menu1.
+    '''Control MenuAdministrador.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Menu1 As Global.System.Web.UI.WebControls.Menu
+    Protected WithEvents MenuAdministrador As Global.System.Web.UI.WebControls.Menu
+
+    '''<summary>
+    '''Control MenuCita.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents MenuCita As Global.System.Web.UI.WebControls.Menu
+
+    '''<summary>
+    '''Control MenuCubiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents MenuCubiculo As Global.System.Web.UI.WebControls.Menu
+
+    '''<summary>
+    '''Control MenuFacturacion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents MenuFacturacion As Global.System.Web.UI.WebControls.Menu
 
     '''<summary>
     '''Control FeaturedContent.

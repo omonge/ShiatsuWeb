@@ -11,34 +11,25 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FrmCatalogoDiagnostico
+Partial Public Class FrmRegistro
 
     '''<summary>
-    '''Control TabContainer1.
+    '''Control txtUserName.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TabContainer1 As Global.AjaxControlToolkit.TabContainer
+    Protected WithEvents txtUserName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control TabPanel1.
+    '''Control rfvUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TabPanel1 As Global.AjaxControlToolkit.TabPanel
-
-    '''<summary>
-    '''Control txtIdentificacion.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtIdentificacion As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents rfvUsuario As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Control txtNombre.
@@ -50,22 +41,94 @@ Partial Public Class FrmCatalogoDiagnostico
     Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control txtApellido1.
+    '''Control rfvNombre.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtApellido1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents rfvNombre As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control txtApellido2.
+    '''Control txtPassword1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtApellido2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPassword1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control rfvContrasena1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents rfvContrasena1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''Control txtPassword2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtPassword2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control rfvContrasena2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents rfvContrasena2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''Control CompareValidator1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents CompareValidator1 As Global.System.Web.UI.WebControls.CompareValidator
+
+    '''<summary>
+    '''Control ddlCubiculos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlCubiculos As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control cubiculoDS.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cubiculoDS As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control ddlCaja.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlCaja As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control cajaDS.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cajaDS As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''Control ddlEstados.
@@ -77,130 +140,13 @@ Partial Public Class FrmCatalogoDiagnostico
     Protected WithEvents ddlEstados As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control txtObservaciones.
+    '''Control ddlPerfil.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtObservaciones As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control TabPanel2.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents TabPanel2 As Global.AjaxControlToolkit.TabPanel
-
-    '''<summary>
-    '''Control txtDermatitisOleosa.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtDermatitisOleosa As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtDermatitisSeca.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtDermatitisSeca As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtDermatitisisSeborreica.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtDermatitisisSeborreica As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtDeshidratacion.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtDeshidratacion As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtTelanocitos.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtTelanocitos As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtPsoriasis.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtPsoriasis As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtCaspa.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtCaspa As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtHongos.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtHongos As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control ddlTipoAlopecia.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddlTipoAlopecia As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control tipoAlopeciaDS.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents tipoAlopeciaDS As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''Control txtIPorcentajePerdida.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtIPorcentajePerdida As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control RegularExpressionValidator1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents ddlPerfil As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''Control btnAgregar.
@@ -239,11 +185,20 @@ Partial Public Class FrmCatalogoDiagnostico
     Protected WithEvents gvDatos As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''Control frenciasDS.
+    '''Control lblError.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents frenciasDS As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents lblError As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control usuarioDS.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents usuarioDS As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

@@ -131,6 +131,15 @@ Partial Public Class FrmFacturar
     Protected WithEvents productosDS As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''Control lblCaja.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblCaja As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Control txtCantidad.
     '''</summary>
     '''<remarks>

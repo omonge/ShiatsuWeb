@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmCatalogoCliente.aspx.vb" Inherits="ShiatsuWeb.FrmCatalogoCliente" %> 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit.HTMLEditor" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 </asp:Content>
@@ -9,22 +10,30 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
     <h3>Mantenimiento Cliente</h3>
-   <table>
-        <tr>
+    <p></p>
+    <asp:TabContainer ID="TabContainer1" runat="server"  ActiveTabIndex="0" Height="100%" Width="100%">
+        <asp:TabPanel runat="server" HeaderText="Datos Personales" ID="TabPanel1">
+            
+ 
+            <ContentTemplate>
+               <table>
+                    <tr>
         <td >Diagnóstico</td>
         <td  >
-            <asp:DropDownList ID="ddlDiagnostico" runat="server" DataSourceID="diagnosticoDS" DataTextField="nombre" DataValueField="cedcliente" Width="160px">
+            <asp:DropDownList ID="ddlDiagnostico" runat="server" DataSourceID="diagnosticoDS" DataTextField="nombre" 
+                DataValueField="cedcliente" Width="160px">
                 </asp:DropDownList> 
             <asp:SqlDataSource ID="diagnosticoDS" runat="server"
                  ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
                 ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>"
-                 SelectCommand="SELECT cedcliente, nombre FROM cat_diagnostico"></asp:SqlDataSource>
+                 SelectCommand="SELECT d.cedcliente, d.nombre 
+                            FROM cat_diagnostico  d
+                            WHERE d.cedcliente not in ( select c.cedcliente from cat_cliente c)"></asp:SqlDataSource>
         </td>
         <td >
                <asp:Button ID="btnCargar" runat="server" Text="Cargar" />
             </td>
-        <td >
-            </td>
+        <td > </td>
     </tr> 
 
         <tr>
@@ -93,9 +102,9 @@
        <tr>
         <td >Fecha Nacimiento</td>
         <td > 
-         <asp:TextBox ID="txtFechaNacimiento" runat="server" MaxLength="50" Width="160px"  ></asp:TextBox>
+         <asp:TextBox ID="txtFechaNacimiento" runat="server" MaxLength="10" Width="160px"  ></asp:TextBox>
          
-            <asp:CalendarExtender ID="txtFechaNacimiento_CalendarExtender" runat="server" TargetControlID="txtFechaNacimiento">
+            <asp:CalendarExtender ID="txtFechaNacimiento_CalendarExtender" runat="server" Format="dd/MM/yyyy" TargetControlID="txtFechaNacimiento" Enabled="True">
             </asp:CalendarExtender>
         
     
@@ -107,10 +116,78 @@
             <asp:TextBox ID="txtNombreFactura" runat="server" MaxLength="100" Width="160px"></asp:TextBox>
             </td>
     </tr> 
+
+                    <tr>
+                        <td>Profesión</td>
+                        <td>
+                            <asp:DropDownList ID="ddlProfesion" runat="server" DataSourceID="profesionDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="profesionDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_profesion"></asp:SqlDataSource>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+               </table>
+            </ContentTemplate>
+            
+ 
+        </asp:TabPanel>
+        <asp:TabPanel ID="TabPanel2" runat="server" HeaderText="Direccón">
+            <ContentTemplate>
+                <table >
+                    <tr>
+                        <td>Provincia</td>
+                        <td>
+                            <asp:DropDownList ID="ddlProvincia" runat="server" DataSourceID="provinciaDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="provinciaDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_provincia"></asp:SqlDataSource>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cantón</td>
+                        <td>
+                            <asp:DropDownList ID="ddlCanton" runat="server" DataSourceID="cantonDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                            </asp:DropDownList>
+                            <asp:ImageButton ID="btnActualizarPrecio" runat="server" Height="16px" ImageUrl="~/Images/update.png" Width="18px" />
+                            <asp:SqlDataSource ID="cantonDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_canton WHERE (provincia = ?)">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="ddlProvincia" Name="provincia" PropertyName="SelectedValue" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Distrito</td>
+                        <td>
+                            <asp:DropDownList ID="ddlDistrito" runat="server" DataSourceID="distrioDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                            </asp:DropDownList>
+                            <asp:ImageButton ID="btnActualizarPrecio0" runat="server" Height="16px" ImageUrl="~/Images/update.png" Width="18px" />
+                            <asp:SqlDataSource ID="distrioDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_distrito WHERE ((provincia = ?) AND (canton = ?))">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="ddlProvincia" Name="provincia" PropertyName="SelectedValue" Type="Int32" />
+                                    <asp:ControlParameter ControlID="ddlCanton" Name="canton" PropertyName="SelectedValue" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dirección</td>
+                        <td>
+                            <asp:TextBox ID="txtDireccion" runat="server" MaxLength="100" Rows="2" TextMode="MultiLine" Width="160px"></asp:TextBox>
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+        </asp:TabPanel>
+        <asp:TabPanel ID="TabPanel3" runat="server" HeaderText="TabPanel3">
+            <HeaderTemplate>
+                Evaluación
+            </HeaderTemplate>
+            <ContentTemplate>
+                 <table>
+       
        <tr>
-        <td ></td>
-        <td >
-            </td>
         <td >
             Tipo Alopecia</td>
         <td >
@@ -120,34 +197,6 @@
             </td>
     </tr> 
        <tr>
-        <td >Provincia</td>
-        <td >
-            <asp:DropDownList ID="ddlProvincia" runat="server" DataSourceID="provinciaDS" DataTextField="descripcion" DataValueField="id" Width="160px">
-                </asp:DropDownList> 
-            <asp:SqlDataSource ID="provinciaDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_provincia"></asp:SqlDataSource>
-            </td>
-        <td >
-            Profesión</td>
-        <td >
-            <asp:DropDownList ID="ddlProfesion" runat="server" DataSourceID="profesionDS" DataTextField="descripcion" DataValueField="id" Width="160px">
-                </asp:DropDownList> 
-            <asp:SqlDataSource ID="profesionDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_profesion"></asp:SqlDataSource>
-            </td>
-    </tr> 
-       <tr>
-        <td >Cantón</td>
-        <td >
-            <asp:DropDownList ID="ddlCanton" runat="server" DataSourceID="cantonDS" DataTextField="descripcion" DataValueField="id" Width="160px">
-                </asp:DropDownList> 
-                                        <asp:ImageButton ID="btnActualizarPrecio" runat="server" Height="16px" ImageUrl="~/Images/update.png" Width="18px" />
-            <asp:SqlDataSource ID="cantonDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
-                ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
-                SelectCommand="SELECT id, descripcion FROM cat_canton WHERE (provincia = ?)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlProvincia" Name="provincia" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            </td>
         <td >
             Tipo Cliente</td>
         <td >
@@ -156,21 +205,17 @@
             <asp:SqlDataSource ID="tipoClienteDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_tipo_cliente"></asp:SqlDataSource>
             </td>
     </tr> 
-       <tr>
-        <td>Distrito</td>
-        <td >
-            <asp:DropDownList ID="ddlDistrito" runat="server" DataSourceID="distrioDS" DataTextField="descripcion" DataValueField="id" Width="160px">
-                </asp:DropDownList> 
-                                        <asp:ImageButton ID="btnActualizarPrecio0" runat="server" Height="16px" ImageUrl="~/Images/update.png" Width="18px" />
-                                    <asp:SqlDataSource ID="distrioDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" 
-                                        ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" 
-                                        SelectCommand="SELECT id, descripcion FROM cat_distrito WHERE ((provincia = ?) AND (canton = ?))">
-                                        <SelectParameters>
-                                            <asp:ControlParameter ControlID="ddlProvincia" Name="provincia" PropertyName="SelectedValue" Type="Int32" />
-                                            <asp:ControlParameter ControlID="ddlCanton" Name="canton" PropertyName="SelectedValue" Type="Int32" />
-                                        </SelectParameters>
-            </asp:SqlDataSource>
-            </td>
+      
+        </table>
+            </ContentTemplate>
+        </asp:TabPanel>
+        <asp:TabPanel ID="TabPanel4" runat="server" HeaderText="TabPanel4">
+            <HeaderTemplate>
+                Cita
+            </HeaderTemplate>
+            <ContentTemplate>
+                <table>
+                     <tr>
         <td>
             Frecuencia Cita</td>
         <td>
@@ -180,10 +225,6 @@
            </td>
     </tr> 
        <tr>
-        <td>Dirección</td>
-        <td >
-            <asp:TextBox ID="txtDireccion" runat="server" MaxLength="100" Width="160px" Rows="2" TextMode="MultiLine"></asp:TextBox>
-            </td>
         <td>
             Estado</td>
         <td>
@@ -193,25 +234,21 @@
                 </asp:DropDownList> 
             </td>
        </tr>
-        <tr>
-        <td colspan="2" > 
-        
-             <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />      
+
+                </table>
+            </ContentTemplate>
+        </asp:TabPanel>
+    </asp:TabContainer>
+  
+
+    </br>
+
+    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />      
              <asp:Button ID="btnModificar" runat="server" Text="Modificar" Visible="False" />
-             <br />
+    </br>
             <asp:Label ID="lblMensaje" runat="server"></asp:Label>
         
-        </td>
-        <td > 
-        
-             </td>
-        <td > 
-        
-             </td>
-    </tr> 
-    </table>
-
-    <asp:GridView ID="gvDatos" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="frenciasDS" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="cedcliente">
+    <asp:GridView ID="gvDatos" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="frenciasDS" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="cedcliente" Width="100%">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />

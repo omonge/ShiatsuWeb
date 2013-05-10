@@ -13,7 +13,7 @@ Public Class FacturaDao
         Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
         coneccion = New MySqlConnection(SuperSecreto)
         'sql
-        Dim sql As String = "INSERT INTO factura_encabezado(usuario,factura,fecha,cliente,estado) VALUES (@usuario,@factura,@fecha,@cliente,@estado)"
+        Dim sql As String = "INSERT INTO factura_encabezado(usuario,factura,fecha,cliente,estado,caja) VALUES (@usuario,@factura,@fecha,@cliente,@estado,@caja)"
         'adapter
         dataAdapter = New MySqlDataAdapter()
         dataAdapter.InsertCommand = New MySqlCommand(sql, coneccion)
@@ -23,6 +23,7 @@ Public Class FacturaDao
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@fecha", Date.Now))
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@cliente", dato.metCliente.metCedCliente))
         dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@estado", dato.metEstado))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@caja", dato.metCaja))
         'abre
         coneccion.Open()
         'ejecuta
@@ -44,7 +45,7 @@ Public Class FacturaDao
         coneccion = New MySqlConnection(SuperSecreto)
         'sql
         Dim sql As String = "UPDATE factura_encabezado " +
-                            "SET usuario=@usuario,estado=@estado,total=@total,subtotal=@subtotal,iva=@iva,tipo_pago=@tipo_pago " +
+                            "SET usuario=@usuario,estado=@estado,total=@total,subtotal=@subtotal,iva=@iva,tipo_pago=@tipo_pago,caja=@caja " +
                             "WHERE factura=@factura"
         'adapter
         dataAdapter = New MySqlDataAdapter()
@@ -57,6 +58,7 @@ Public Class FacturaDao
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@estado", dato.metEstado))
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@factura", dato.metFactura))
         dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@tipo_pago", dato.metTipoPago))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@caja", dato.metCaja))
         'abre
         coneccion.Open()
         'ejecuta

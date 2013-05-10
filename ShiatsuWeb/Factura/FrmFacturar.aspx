@@ -1,13 +1,15 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FrmFacturar.aspx.vb" Inherits="ShiatsuWeb.FrmFacturar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
+ 
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     
       <h3>Cistas por Facturar</h3>
-    <asp:GridView ID="gvDatosP" runat="server" CellPadding="4" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDB" ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="gvDatosP" runat="server" CellPadding="4" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDB" ForeColor="#333333" GridLines="None" Width="100%">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -17,7 +19,7 @@
             <asp:BoundField DataField="cliente" HeaderText="Cliente" SortExpression="cliente" />
             <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
             <asp:BoundField DataField="cubiculo" HeaderText="Cubiculo" SortExpression="cubiculo" > 
-            <ItemStyle HorizontalAlign="Right" />
+            <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
             <asp:BoundField DataField="observaciones" HeaderText="Observaciones" SortExpression="observaciones" ApplyFormatInEditMode="True" HtmlEncode="False" HtmlEncodeFormatString="False" />
         </Columns>
@@ -47,26 +49,26 @@
       <asp:HiddenField ID="hfFecha" runat="server" />
 
      <h3>Factura</h3><hr>
-   <table border="1" >
+   <table   >
         <tr>
-        <td class="auto-style2" >Cliente:</td>
-        <td class="auto-style2" >
+        <td  >Cliente:</td>
+        <td  >
             <asp:TextBox ID="txtCliente" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
         </td>
-        <td class="auto-style2" >
+        <td  >
             Factura:</td>
-        <td class="auto-style2" >
+        <td  >
             <asp:Label ID="lblId" runat="server" Font-Size="14pt" ForeColor="Red"></asp:Label>
         
         </td>
-        <td class="auto-style2" >
+        <td  >
             </td>
     </tr> 
 
     <tr>
         <td >Tipo Cliente:</td>
-        <td > 
+        <td  > 
             <asp:TextBox ID="txtTipoCliente" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
         </td>
@@ -79,7 +81,7 @@
     </tr> 
     <tr>
         <td>Teléfono:</td>
-        <td>
+        <td >
             <asp:TextBox ID="txtTelefono" runat="server" Enabled="False" Width="160px"></asp:TextBox>
         
         </td>
@@ -94,7 +96,7 @@
     </tr> 
     <tr>
         <td></td>
-        <td>
+        <td >
             </td>
         <td>
             </td>
@@ -109,22 +111,23 @@
         <td colspan="5"  > 
         
              <asp:Button ID="btnFacturar" runat="server" Text="Facturar" Visible="False" />
+             
              <br />
             <asp:Label ID="lblMensaje" runat="server"></asp:Label>
         <hr>
         </td>
     </tr> 
         <tr>
-        <td colspan="2" > 
+        <td colspan="2"  > 
         
              </td>
-        <td > 
+        <td  > 
         
              </td>
-        <td > 
+        <td  > 
         
              </td>
-        <td > 
+        <td  > 
         
              </td>
     </tr> 
@@ -189,7 +192,13 @@
         </td>
         <td > 
         
-              <table>
+              <table >
+                                <tr>
+                                    <td  >Caja</td>
+                                    <td   >
+            <asp:Label ID="lblCaja" runat="server"></asp:Label>
+                                    </td>
+                                </tr> 
                                 <tr>
                                     <td  >Cantidad</td>
                                     <td   >
@@ -242,7 +251,7 @@
         <td  > 
         
              Tipo Pago</td>
-        <td  > 
+        <td   > 
         
              <asp:DropDownList ID="ddlTipoPago" runat="server" DataSourceID="tipoPagoDS" DataTextField="descripcion" DataValueField="id" Width="160px">
                                     </asp:DropDownList> 
@@ -265,7 +274,7 @@
         <td > 
         
              &nbsp;</td>
-        <td > 
+        <td  > 
         
              &nbsp;</td>
         <td > 
@@ -288,7 +297,7 @@
              Total:</td>
         <td > 
         
-             <asp:TextBox ID="txtTotal" runat="server" Font-Bold="True" TextMode="Number" Width="100px" ReadOnly="True"></asp:TextBox>
+             <asp:TextBox ID="txtTotal" runat="server" Font-Bold="True" Width="100px" ReadOnly="True"></asp:TextBox>
             </td>
         <td > </td>
     </tr> 

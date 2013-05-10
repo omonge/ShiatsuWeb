@@ -31,6 +31,19 @@
         If (usuario Is Nothing) Then
         Else 
             Me.lblUsuario.Text = "Perfil: " + usuario.perfil + " / Usuario: " + usuario.nombre
+            Select Case usuario.perfil
+                Case "Administrador"
+                    Me.MenuAdministrador.Visible = True
+                Case "Consulta"
+
+                Case "Agenda"
+                    Me.MenuCita.Visible = True
+                Case "Facturación"
+                    Me.MenuFacturacion.Visible = True
+                Case "Cita"
+                    Me.MenuCita.Visible = True
+            End Select
+
         End If
     End Sub
 

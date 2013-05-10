@@ -11,5 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FrmFacturaFecha
+Partial Public Class FrmSalir
 End Class

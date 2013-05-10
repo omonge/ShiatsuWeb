@@ -5,7 +5,8 @@
     Dim cliente As Cliente
     Dim estado As String
     Dim usuario As String
-    Dim tipoPago As Integer 
+    Dim tipoPago As Integer
+    Dim caja As Integer
 
     Dim total As Double
     Dim subTotal As Double
@@ -20,6 +21,7 @@
         Me.cliente = New Cliente()
         Me.estado = vbNull
         Me.usuario = vbNull
+        Me.caja = vbNull
     End Sub
 
     Public Property metFactura() As String
@@ -101,6 +103,15 @@
         End Get
         Set(ByVal value As Integer)
             Me.tipoPago = value
+        End Set
+    End Property
+
+    Public Property metCaja() As Integer
+        Get
+            Return Me.caja
+        End Get
+        Set(ByVal value As Integer)
+            Me.caja = value
         End Set
     End Property
 End Class

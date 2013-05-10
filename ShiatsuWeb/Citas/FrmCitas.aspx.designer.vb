@@ -32,6 +32,33 @@ Partial Public Class FrmCitas
     Protected WithEvents citasDS As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''Control hfHora.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents hfHora As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''Control BarChart1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BarChart1 As Global.AjaxControlToolkit.BarChart
+
+    '''<summary>
+    '''Control lblFecha.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblFecha As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Control calAgenda.
     '''</summary>
     '''<remarks>
@@ -48,15 +75,6 @@ Partial Public Class FrmCitas
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblId As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control lblFecha.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblFecha As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control ddlHoras.

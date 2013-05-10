@@ -3,6 +3,14 @@
    
 
    
+    <style type="text/css">
+        .auto-style1 {
+            height: 23px;
+        }
+    </style>
+   
+
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
     
@@ -10,12 +18,64 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
     <h3>Mantenimiento Provincia</h3>
-   <table>
+    <p></p>
+    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Height="100%" Width="100%">
+        <ajaxToolkit:TabPanel runat="server" HeaderText="TabPanel1" ID="TabPanel1">
+            <HeaderTemplate>
+                Datos Personales
+            </HeaderTemplate>
+            <ContentTemplate>
+                <table >
+                    <tr>
+                        <td >Identificación</td>
+                        <td >
+                            <asp:TextBox ID="txtIdentificacion" runat="server" MaxLength="25" Width="160px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>
+                            <asp:TextBox ID="txtNombre" runat="server" MaxLength="50" Width="160px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Primer Apellido</td>
+                        <td>
+                            <asp:TextBox ID="txtApellido1" runat="server" MaxLength="50" Width="160px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Segundo Apellido</td>
+                        <td>
+                            <asp:TextBox ID="txtApellido2" runat="server" MaxLength="50" Width="160px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Estado</td>
+                        <td>
+                            <asp:DropDownList ID="ddlEstados" runat="server" Width="160px">
+                                <asp:ListItem Value="Activo">Activo</asp:ListItem>
+                                <asp:ListItem Value="Inactivo">Inactivo</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td>Observaciones</td>
+                        <td>
+                            <asp:TextBox ID="txtObservaciones" runat="server" MaxLength="100" Rows="2" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+        </ajaxToolkit:TabPanel>
+        <ajaxToolkit:TabPanel ID="TabPanel2" runat="server" HeaderText="TabPanel2">
+            <HeaderTemplate>
+                Diagnóstico
+            </HeaderTemplate>
+            <ContentTemplate>
+                <table>
         <tr>
-        <td >Identificación</td>
-        <td >
-            <asp:TextBox ID="txtIdentificacion" runat="server" MaxLength="25" Width="160px"></asp:TextBox>
-        </td>
         <td >
             Dermatitis Oleosa</td>
         <td >
@@ -24,10 +84,6 @@
     </tr> 
 
     <tr>
-        <td >Nombre</td>
-        <td >
-            <asp:TextBox ID="txtNombre" runat="server" MaxLength="50" Width="160px"></asp:TextBox>
-        </td>
         <td >
             Dermatitis Seca</td>
         <td >
@@ -35,10 +91,6 @@
         </td>
     </tr> 
     <tr>
-        <td>Primer Apellido</td>
-        <td>
-            <asp:TextBox ID="txtApellido1" runat="server" MaxLength="50" Width="160px"></asp:TextBox>
-            </td>
         <td>
             Dermatitis Seborreica</td>
         <td>
@@ -46,10 +98,6 @@
             </td>
     </tr> 
        <tr>
-        <td>Segundo Apellido</td>
-        <td>
-            <asp:TextBox ID="txtApellido2" runat="server" MaxLength="50" Width="160px"></asp:TextBox>
-            </td>
         <td>
             Deshidratación</td>
         <td>
@@ -57,12 +105,6 @@
             </td>
     </tr> 
        <tr>
-        <td>Tipo Alopecia</td>
-        <td>
-            <asp:DropDownList ID="ddlTipoAlopecia" runat="server" DataSourceID="tipoAlopeciaDS" DataTextField="descripcion" DataValueField="id" Width="160px">
-                </asp:DropDownList> 
-            <asp:SqlDataSource ID="tipoAlopeciaDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_tipo_alopecia"></asp:SqlDataSource>
-            </td>
         <td>
             Telanocitos</td>
         <td>
@@ -70,11 +112,6 @@
             </td>
     </tr> 
        <tr>
-        <td class="auto-style3">Porcentaje de Perdida</td>
-        <td class="auto-style3">
-            <asp:TextBox ID="txtIPorcentajePerdida" runat="server" MaxLength="5" Width="160px" TextMode="Number">0.0</asp:TextBox>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtIPorcentajePerdida" ErrorMessage="Valor incorrecto" ForeColor="Red" ValidationExpression="[0-9]{0,2}(\.[0-9]{0,2})?$"></asp:RegularExpressionValidator>
-            </td>
         <td class="auto-style3">
             Psoriasis</td>
         <td class="auto-style3">
@@ -82,13 +119,6 @@
             </td>
     </tr> 
        <tr>
-        <td>Estado</td>
-        <td>
-            <asp:DropDownList ID="ddlEstados" runat="server" DataSourceID="" DataTextField="" DataValueField="" Width="160px">
-            <asp:ListItem Value="Activo">Activo</asp:ListItem>
-            <asp:ListItem Value="Inactivo">Inactivo</asp:ListItem>
-                </asp:DropDownList> 
-            </td>
         <td>
             Caspa</td>
         <td>
@@ -96,35 +126,38 @@
             </td>
     </tr> 
        <tr>
-        <td>Observaciones</td>
-        <td>
-            <asp:TextBox ID="txtObservaciones" runat="server" MaxLength="100" Width="160px" Rows="2" TextMode="MultiLine"></asp:TextBox>
-            </td>
         <td>
             Hongos</td>
         <td>
             <asp:TextBox ID="txtHongos" runat="server" MaxLength="100" Width="160px"></asp:TextBox>
             </td>
        </tr>
-        <tr>
-        <td colspan="2" > 
-        
-             <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />      
+                     <tr>
+                        <td>Tipo Alopecia</td>
+                        <td>
+                            <asp:DropDownList ID="ddlTipoAlopecia" runat="server" DataSourceID="tipoAlopeciaDS" DataTextField="descripcion" DataValueField="id" Width="160px">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="tipoAlopeciaDS" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, descripcion FROM cat_tipo_alopecia"></asp:SqlDataSource>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Porcentaje de Perdida</td>
+                        <td>
+                            <asp:TextBox ID="txtIPorcentajePerdida" runat="server" MaxLength="5" TextMode="Number" Width="160px">0.0</asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtIPorcentajePerdida" ErrorMessage="Valor incorrecto" ForeColor="Red" ValidationExpression="[0-9]{0,2}(\.[0-9]{0,2})?$"></asp:RegularExpressionValidator>
+                        </td>
+                    </tr>
+    </table>
+            </ContentTemplate>
+        </ajaxToolkit:TabPanel>
+      
+    </ajaxToolkit:TabContainer>
+   
+    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />      
              <asp:Button ID="btnModificar" runat="server" Text="Modificar" Visible="False" />
              <br />
             <asp:Label ID="lblMensaje" runat="server"></asp:Label>
-        
-        </td>
-        <td > 
-        
-             </td>
-        <td > 
-        
-             </td>
-    </tr> 
-    </table>
-
-    <asp:GridView ID="gvDatos" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="frenciasDS" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="cedcliente">
+    <asp:GridView ID="gvDatos" Width="100%" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="frenciasDS" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="cedcliente">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />

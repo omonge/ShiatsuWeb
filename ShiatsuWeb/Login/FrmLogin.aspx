@@ -41,8 +41,7 @@
         </tr> 
         <tr>
             <td colspan="2" align="center">
-                <asp:HyperLink ID="hlk" runat="server" NavigateUrl="~/Registrar.aspx">Registrar</asp:HyperLink>
-                 </td>
+                &nbsp;</td>
         </tr> 
         <tr>
             <td colspan="2" align="center">

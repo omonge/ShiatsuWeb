@@ -3,8 +3,77 @@ Imports MySql.Data.MySqlClient
 
 Public Class UsuarioDao
 
+
+    Public Sub insertar(ByRef dato As Usuario)
+
+        'variables
+        Dim coneccion As MySqlConnection
+        Dim dataAdapter As MySqlDataAdapter
+        'conección
+        Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
+        coneccion = New MySqlConnection(SuperSecreto)
+        'sql
+        Dim sql As String = "INSERT INTO cat_usuario (usuario, password, nombre, perfil, cubiculo, caja, estado) " +
+                            "VALUES (@usuario, @password, @nombre, @perfil, @cubiculo, @caja, @estado)"
+        'adapter
+        dataAdapter = New MySqlDataAdapter()
+        dataAdapter.InsertCommand = New MySqlCommand(sql, coneccion)
+        'parametros
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@usuario", dato.usuario))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@password", dato.contrasena))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@nombre", dato.nombre))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@perfil", dato.perfil))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@cubiculo", dato.cubiculo))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@caja", dato.caja))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@estado", dato.estado))
+        dataAdapter.InsertCommand.Parameters.Add(New MySqlParameter("@fmodifica", DateTime.Now))
+        'abre
+        coneccion.Open()
+        'ejecuta
+        dataAdapter.InsertCommand.ExecuteNonQuery()
+        'cierra
+        coneccion.Close()
+
+    End Sub
+
+
+    Public Sub modifica(ByRef dato As Usuario)
+
+        'variables
+        Dim coneccion As MySqlConnection
+        Dim dataAdapter As MySqlDataAdapter
+        'conección
+        Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
+        coneccion = New MySqlConnection(SuperSecreto)
+        'sql
+        Dim sql As String = "UPDATE cat_usuario  " +
+                            "SET nombre=@nombre, perfil=@perfil, cubiculo=@cubiculo, caja=@caja, estado=@estado, fmodifica=@fmodifica " +
+                            IIf(dato.contrasena = "", "", ",password=@password ") +
+                            "WHERE usuario=@usuario"
+        'adapter
+        dataAdapter = New MySqlDataAdapter()
+        dataAdapter.UpdateCommand = New MySqlCommand(sql, coneccion)
+        'parametros
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@usuario", dato.usuario))
+        IIf(dato.contrasena = "", "", dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@password", dato.contrasena)))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@nombre", dato.nombre))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@perfil", dato.perfil))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@cubiculo", dato.cubiculo))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@caja", dato.caja))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@estado", dato.estado))
+        dataAdapter.UpdateCommand.Parameters.Add(New MySqlParameter("@fmodifica", DateTime.Now))
+        'abre
+        coneccion.Open()
+        'ejecuta
+        dataAdapter.UpdateCommand.ExecuteNonQuery()
+        'cierra
+        coneccion.Close()
+
+    End Sub
+
+
     ''' <summary>
-    ''' consulta un objeto de usuario
+    ''' consultar un objeto de usuario
     ''' </summary>
     ''' <param name="usuario"></param>
     ''' <returns></returns>
@@ -20,7 +89,7 @@ Public Class UsuarioDao
         Dim SuperSecreto As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("shiatsuDB").ConnectionString
         coneccion = New MySqlConnection(SuperSecreto)
 
-        Dim sql As String = "select cubiculo,usuario,nombre, password,perfil,estado  from cat_usuario where "
+        Dim sql As String = "select *  from cat_usuario where "
         If (usuario.usuario <> "") Then
             sql = sql + "usuario = '" + usuario.usuario + "' "
             tieneParametros = True
@@ -46,6 +115,7 @@ Public Class UsuarioDao
             usuario.perfil = fila("perfil")
             usuario.estado = fila("estado")
             usuario.cubiculo = fila("cubiculo")
+            usuario.caja = fila("caja")
             Return usuario
         Else
             Return Nothing

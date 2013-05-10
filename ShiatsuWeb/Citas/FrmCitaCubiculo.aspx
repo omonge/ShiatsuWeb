@@ -10,7 +10,7 @@
 
     
       <h3>Cistas pendientes cubiculo #<asp:Label ID="lblCubiculoP" runat="server"></asp:Label> </h3>
-    <asp:GridView ID="gvDatosP" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDB">
+    <asp:GridView ID="gvDatosP" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDB" Width="100%">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -59,15 +59,15 @@
 
                         <table>
                                 <tr>
-                                    <td class="auto-style1" >Cantidad</td>
-                                    <td class="auto-style1"  >
+                                    <td  >Cantidad</td>
+                                    <td   >
                                         <asp:TextBox ID="txtCantidad" runat="server" MaxLength="2" TextMode="Number" Width="160px"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Valor incorrecto" ForeColor="Red" ValidationExpression="^[0-9]{1,5}?$"></asp:RegularExpressionValidator>
                                     </td>
                                 </tr> 
                                 <tr>
-                                    <td class="auto-style1" >Prodcuto</td>
-                                    <td class="auto-style1"  ><asp:DropDownList ID="ddlProdcutos" runat="server" DataSourceID="InventarioDB" DataTextField="descripcion" DataValueField="id" Width="160px">
+                                    <td  >Prodcuto</td>
+                                    <td   ><asp:DropDownList ID="ddlProdcutos" runat="server" DataSourceID="InventarioDB" DataTextField="descripcion" DataValueField="id" Width="160px">
                                     <asp:ListItem Value="F">Facturar</asp:ListItem>
                                     </asp:DropDownList> 
                                         <asp:SqlDataSource ID="InventarioDB" runat="server" ConnectionString="<%$ ConnectionStrings:shiatsuDB %>" ProviderName="<%$ ConnectionStrings:shiatsuDB.ProviderName %>" SelectCommand="SELECT id, CONCAT( descripcion, ' -  Cantidad: ',cantidad   )  descripcion FROM cat_inventario WHERE cantidad > 0"></asp:SqlDataSource>
@@ -161,7 +161,7 @@
 
     
       <h3>Cistas finalizadas cubiculo #<asp:Label ID="lblCubiculoF" runat="server"></asp:Label> </h3>
-    <asp:GridView ID="gvDatosF" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDBFinalizada">
+    <asp:GridView ID="gvDatosF" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="agendaDBFinalizada" Width="100%">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />

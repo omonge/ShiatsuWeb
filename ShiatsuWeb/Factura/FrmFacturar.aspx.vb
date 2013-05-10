@@ -13,6 +13,7 @@
         If (Usuario Is Nothing) Then
             Response.Redirect("../Login/FrmLogin.aspx")
         End If
+        Me.lblCaja.Text = usuario.caja
         Me.lblMensaje.Text = ""
         Me.hfFecha.Value = DateTime.Now.ToString("yyyyMMdd")
         Me.montos()
@@ -206,6 +207,7 @@
             facturaEncabezado.metTotal = CDbl(Me.txtTotal.Text)
             facturaEncabezado.metSubTotal = CDbl(Me.txtSubTotal.Text)
             facturaEncabezado.metTipoPago = CDbl(Me.ddlTipoPago.SelectedValue)
+            facturaEncabezado.metCaja = Me.lblCaja.Text
             facturaEncabezado.metEstado = facturaEncabezado.ESTADO_CERRADA
             Me.facturaDao.modificarEncabezado(facturaEncabezado)
             Dim cita As Cita = New Cita()
