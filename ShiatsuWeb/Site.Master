@@ -64,6 +64,7 @@
                                 <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoFrecuenciaCita.aspx" Text="Frecuencia" Value="Frecuencia"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTipoCliente.aspx" Text="Tipo Cliente" Value="Tipo Cliente"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTipoAlopecia.aspx" Text="Tipo Alopecia" Value="Tipo Alopecia"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoRecargo.aspx" Text="Recargo" Value="Recargo"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Geográfico" Value="Geográfico">
                                 <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoPais.aspx" Text="Pais" Value="Pais"></asp:MenuItem>
@@ -82,6 +83,7 @@
                                   <asp:MenuItem NavigateUrl="~/Login/FrmRegistro.aspx" Text="Usuario" Value="Usuario"></asp:MenuItem>
                                   <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoSucursal.aspx" Text="Sucursal" Value="Sucursal"></asp:MenuItem>
                                   <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTipoPago.aspx" Text="Tipo Pago" Value="Tipo Pago"></asp:MenuItem>
+                                  <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoBodega.aspx" Text="Bodega" Value="Bodega"></asp:MenuItem>
                             </asp:MenuItem>
                               <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoDroga.aspx" Text="Droga" Value="Droga"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Catalogos/FrmCatalogoTarjeta.aspx" Text="Tarjeta" Value="Tarjeta"></asp:MenuItem>
