@@ -62,6 +62,8 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
+*.suo
+*.sln
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
@@ -76,7 +78,12 @@ ipch/
 # Visual Studio profiler
 *.psess
 *.vsp
-
+*.cs
+*.sln
+*.csproj
+*.vbproj
+*.fsproj
+*.dbproj
 # ReSharper is a .NET coding add-in
 _ReSharper*
 
